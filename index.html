@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>FamilyFinFit Pro | Royal Edition V16</title>
+    <title>FamilyFinFit Pro</title>
     
     <link rel="icon" type="image/jpeg" href="logo/LOGO FMI.jpg">
     <link rel="apple-touch-icon" href="logo/LOGO FMI.jpg">
@@ -170,7 +170,7 @@
         .select-option:hover { background: #fff1f2; color: var(--secondary); }
 
         /* ==========================================================================
-           5. HABIT MASTER & LOGIC VISUALS
+           5. HABIT & LOGIC VISUALS
            ========================================================================== */
         .folder-container { background: #fff1f2; padding: 2.5rem; border-radius: var(--radius-lg); margin-bottom: 2.5rem; border: 2px solid #fce7f3; }
         .folder-title { font-weight: 900; color: var(--secondary); font-size: 1.3rem; text-transform: uppercase; letter-spacing: 1px; }
@@ -244,12 +244,12 @@
 
     <aside>
         <div class="logo">
-            <img src="logo/LOGO FMI.jpg" alt="FamilyPlanFit Logo" class="site-logo" width="42" height="42"> <span id="branding-text">Diamond Royal</span>
+            <img src="logo/LOGO FMI.jpg" alt="FamilyPlanFit Logo" class="site-logo" width="42" height="42"> <span id="branding-text"></span>
         </div>
         <nav class="nav-menu">
             <a class="nav-link active" onclick="switchTab('dashboard')"><i class="fas fa-th-large"></i> <span data-i18n="nav_dash">Dashboard</span></a>
             <a class="nav-link" onclick="switchTab('finance')"><i class="fas fa-wallet"></i> <span data-i18n="nav_fin">Keuangan</span></a>
-            <a class="nav-link" onclick="switchTab('habits')"><i class="fas fa-calendar-check"></i> <span data-i18n="nav_hab">Habit Master</span></a>
+            <a class="nav-link" onclick="switchTab('habits')"><i class="fas fa-calendar-check"></i> <span data-i18n="nav_hab">Habit</span></a>
             <a class="nav-link" onclick="switchTab('roadmap')"><i class="fas fa-map-marked-alt"></i> <span data-i18n="nav_road">Roadmap</span></a>
             <a class="nav-link" onclick="switchTab('asset')"><i class="fas fa-tools"></i> <span data-i18n="nav_asset">Maintenance</span></a>
             <a class="nav-link" onclick="switchTab('settings')"><i class="fas fa-user-gear"></i> <span data-i18n="nav_set">Pengaturan</span></a>
@@ -350,7 +350,7 @@
         </section>
 
         <section id="finance-section"><div class="card"><h3 data-i18n="fin_log">Log Keuangan</h3><div class="table-container"><table><thead><tr><th data-i18n="th_date">Tgl</th><th data-i18n="th_type">Tipe</th><th data-i18n="th_desc">Ket</th><th data-i18n="th_amt">Jumlah</th><th data-i18n="th_action">Aksi</th></tr></thead><tbody id="finance-body"></tbody></table></div></div></section>
-        <section id="habits-section"><div class="header-flex"><h2 data-i18n="hab_master">Habit Master</h2><div style="display:flex;gap:15px"><button class="btn btn-outline" onclick="openModal('folder')"><i class="fas fa-folder-plus"></i></button><button class="btn btn-success" onclick="openModal('habit')"><i class="fas fa-plus"></i></button></div></div><div id="habits-folders-container"></div></section>
+        <section id="habits-section"><div class="header-flex"><h2 data-i18n="hab">Habit</h2><div style="display:flex;gap:15px"><button class="btn btn-outline" onclick="openModal('folder')"><i class="fas fa-folder-plus"></i></button><button class="btn btn-success" onclick="openModal('habit')"><i class="fas fa-plus"></i></button></div></div><div id="habits-folders-container"></div></section>
         <section id="roadmap-section"><div class="header-flex"><h2 data-i18n="road_title">Life Roadmap</h2><button class="btn btn-success" onclick="openModal('goal')"><i class="fas fa-plus"></i></button></div><div id="goals-full-list" class="grid-2" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));"></div></section>
         <section id="asset-section"><div class="header-flex"><h2 data-i18n="nav_asset">Maintenance</h2><button class="btn btn-primary" onclick="openModal('asset')"><i class="fas fa-wrench"></i></button></div><div class="card"><div class="table-container"><table><thead><tr><th data-i18n="th_date">Tgl</th><th data-i18n="th_asset">Aset</th><th data-i18n="th_act">Tindakan</th><th data-i18n="th_cost">Biaya</th><th data-i18n="th_action">Aksi</th></tr></thead><tbody id="asset-body"></tbody></table></div></div></section>
     </main>
@@ -445,7 +445,7 @@
                 lbl_bday_note: "Sistem cerdas akan mendeteksi hari spesial Anda untuk kejutan notifikasi otomatis!", ph_name: "Nama Anda",
                 btn_save_prof: "Simpan Profil", lbl_lang: "Sistem & Bahasa", fin_log: "Log Keuangan", lbl_app_settings: "Kustomisasi Aplikasi",
                 lbl_branding: "TULISAN BRANDING", ph_branding: "Ubah Nama App di Sidebar", btn_save_brand: "Simpan Branding",
-                hab_master: "Habit Master", road_title: "Life Roadmap", btn_cancel: "Batal", btn_save: "Simpan Data",
+                hab: "Habit", road_title: "Life Roadmap", btn_cancel: "Batal", btn_save: "Simpan Data",
                 btn_close: "Tutup", btn_strike: "Tandai Hari Ini", conf_title: "Hapus Data?", btn_confirm: "Ya, Hapus", lbl_note: "Catatan Progres",
                 ph_progress: "Tulis kemajuanmu hari ini...", ph_desc: "Keterangan...", lbl_type: "Tipe Transaksi", exp: "Pengeluaran", inc: "Pemasukan",
                 bday_t: "Selamat Ulang Tahun, Faqih! 🎂", bday_m: "Semoga hari spesialmu membawa kebahagiaan dan kelancaran target hidupmu!",
@@ -459,7 +459,7 @@
                 lbl_bday_note: "Smart system will detect your birthday and provide a special surprise notification!", ph_name: "Your Name",
                 btn_save_prof: "Save Profile", lbl_lang: "Language & System", fin_log: "Finance Logs", lbl_app_settings: "App Customization",
                 lbl_branding: "BRANDING TEXT", ph_branding: "Change App Name on Sidebar", btn_save_brand: "Save Branding",
-                hab_master: "Habit Master", road_title: "Life Roadmap", btn_cancel: "Cancel", btn_save: "Save Data",
+                hab: "Habit", road_title: "Life Roadmap", btn_cancel: "Cancel", btn_save: "Save Data",
                 btn_close: "Close", btn_strike: "Strike Today", conf_title: "Delete Data?", btn_confirm: "Yes, Delete", lbl_note: "Progress Notes",
                 ph_progress: "Write your progress...", ph_desc: "Description...", lbl_type: "Transaction Type", exp: "Expense", inc: "Income",
                 bday_t: "Happy Birthday, Faqih! 🎂", bday_m: "May your special day bring joy and success to all your goals!",
@@ -663,7 +663,7 @@
             a.click(); showToast('CSV Exported!');
         }
 
-        // --- 7. HABIT Master Calendar Fixed Logic ---
+        // --- 7. HABIT Calendar Fixed Logic ---
         function openHabitCalendar(id) {
             const h = db.habits.find(x => x.id === id);
             document.getElementById('habit-detail-title').innerText = h.name;
@@ -676,7 +676,7 @@
             }
             const todayStr = now.toISOString().split('T')[0];
             document.getElementById('habit-note').value = db.habitEntries[`${id}_${todayStr}`]?.note || '';
-            document.getElementById('save-habit-entry').onclick = () => { toggleHabitDate(id, todayStr, true, document.getElementById('habit-note').value); closeHabitModal(); showToast('Master Strike Recorded! ✨'); };
+            document.getElementById('save-habit-entry').onclick = () => { toggleHabitDate(id, todayStr, true, document.getElementById('habit-note').value); closeHabitModal(); showToast('Habit Strike Recorded! ✨'); };
             document.getElementById('habit-detail-modal').style.display = 'flex';
         }
 
