@@ -443,6 +443,9 @@
         // --- 2. ENGINE INITIALIZATION ---
         function init() {
             // Load Branding
+            // Defensive: ensure db.app and branding exist (fixes case where restart shows default despite save)
+            db.app = db.app || { branding: 'Diamond Royal' };
+            if (!db.app.branding) { db.app.branding = 'Diamond Royal'; try { localStorage.setItem('fff_diamond_royal_final_V16', JSON.stringify(db)); } catch(e) { console.error('Failed to persist default branding', e); } }
             document.getElementById('branding-text').innerText = db.app.branding;
             const setBrandEl = document.getElementById('set-branding');
             setBrandEl.value = db.app.branding;
@@ -526,9 +529,18 @@
         function saveBranding() {
             const newBrand = document.getElementById('set-branding').value.trim();
             if(!newBrand) return showToast('Error: Branding name cannot be empty!', 'error');
+            db.app = db.app || {};
             db.app.branding = newBrand;
             document.getElementById('branding-text').innerText = newBrand;
-            save();
+            // Try to persist immediately and handle errors explicitly
+            try {
+                localStorage.setItem('fff_diamond_royal_final_V16', JSON.stringify(db));
+            } catch (err) {
+                console.error('Failed to persist branding', err);
+                return showToast('Error: Failed to save branding to storage', 'error');
+            }
+            // Re-render and update charts
+            try { renderAll(); updateCharts(); } catch(e) { console.error('Render failed after branding save', e); }
             showToast('App Branding Updated! 💎');
         }
 
