@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>FamilyFinFit Pro</title>
+    <title id="web-title">FMI Sovereign | FamilyFinFit Pro</title>
     
     <link rel="icon" type="image/jpeg" href="logo/LOGO FMI.jpg">
     <link rel="apple-touch-icon" href="logo/LOGO FMI.jpg">
@@ -18,7 +18,7 @@
     
     <style>
         /* ==========================================================================
-           1. CORE DESIGN SYSTEM (VIVID PALETTE)
+           1. CORE DESIGN SYSTEM (VIVID MASTERPALETTE)
            ========================================================================== */
         :root {
             --primary: #f97316;    /* Vivid Orange */
@@ -35,13 +35,11 @@
             --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        /* Global Resets */
+        /* --- Global Reset & Typography --- */
         * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
         
         body { 
-            font-family: 'Montserrat', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; 
-            -webkit-font-smoothing: antialiased; 
-            -moz-osx-font-smoothing: grayscale;
+            font-family: 'Montserrat', sans-serif; 
             background-color: var(--bg-main); 
             color: var(--text-main); 
             overflow-x: hidden; 
@@ -50,7 +48,7 @@
 
         h1, h2, h3, h4, .nav-link, .btn, .form-label, th { font-family: 'Poppins', sans-serif; }
         
-        /* Hero Heading Branding */
+        /* Dashboard Branding Font */
         .special-name { 
             font-family: 'Righteous', cursive; 
             color: var(--primary); 
@@ -73,13 +71,10 @@
 
         .logo { 
             display: flex; align-items: center; gap: 15px; margin-bottom: 3.5rem; 
-            color: var(--primary); font-weight: 900; font-size: 1.5rem; 
+            color: var(--primary); font-weight: 900; font-size: 1.4rem; 
             text-transform: uppercase; letter-spacing: 1px;
         }
-        /* Icon Berlian Tanpa Animasi Muter */
-        .logo i { color: var(--secondary); font-size: 1.8rem; }
-        .site-logo { width: 42px; height: 42px; object-fit: contain; border-radius: 8px; box-shadow: 0 6px 18px rgba(0,0,0,0.08); }
-        .dashboard-logo { color: var(--secondary); font-size: 2.4rem; }
+        .site-logo { width: 42px; height: 42px; object-fit: contain; border-radius: 12px; box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
         
         .nav-menu { list-style: none; display: flex; flex-direction: column; gap: 12px; }
         .nav-link {
@@ -93,11 +88,10 @@
             box-shadow: 0 12px 25px rgba(249, 115, 22, 0.35); 
         }
 
-        /* Hide bottom nav on desktop */
         .bottom-nav { display: none; }
 
         /* ==========================================================================
-           3. MAIN LAYOUT & SCROLL AREA
+           3. MAIN LAYOUT & GRID COMPONENTS
            ========================================================================== */
         main { flex: 1; margin-left: var(--sidebar-width); padding: 3rem 4.5rem; min-height: 100vh; transition: 0.3s; }
         
@@ -111,7 +105,7 @@
 
         .header-flex { display: flex; justify-content: space-between; align-items: center; margin-bottom: 3.5rem; flex-wrap: wrap; gap: 1.5rem; }
 
-        /* Stats Component */
+        /* Stats Cards */
         .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.8rem; margin-bottom: 3rem; }
         .stat-card { 
             background: white; padding: 2.2rem; border-radius: var(--radius-lg); 
@@ -123,7 +117,7 @@
         .stat-card h3 { font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; margin-bottom: 12px; font-weight: 800; letter-spacing: 1.2px; }
         .stat-card .value { font-size: 1.9rem; font-weight: 900; color: var(--text-main); letter-spacing: -0.5px; }
 
-        /* Birthday Celebration Banner */
+        /* Birthday Banner Overlay */
         #bday-banner { 
             display: none; background: linear-gradient(135deg, #fdf2f8, #fbcfe8); border: 3px dashed var(--secondary); 
             padding: 2.5rem; border-radius: var(--radius-lg); margin-bottom: 3.5rem; align-items: center; gap: 25px; 
@@ -132,7 +126,7 @@
         @keyframes bounceIn { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
 
         /* ==========================================================================
-           4. FORM COMPONENTS & MODERN SELECTS
+           4. FORM COMPONENTS & MODERN INPUTS
            ========================================================================== */
         .card { background: white; padding: 3rem; border-radius: var(--radius-lg); box-shadow: var(--shadow); margin-bottom: 2rem; border: 1px solid #fff1f2; }
         .form-group { margin-bottom: 2.2rem; position: relative; }
@@ -145,7 +139,7 @@
         }
         .modern-input:focus { border-color: var(--primary); background: white; box-shadow: 0 0 0 6px rgba(249, 115, 22, 0.1); }
 
-        /* Modern Custom Date UI */
+        /* Modern Date UI Wrapper */
         .date-input-wrapper { position: relative; width: 100%; }
         .date-input-wrapper i { position: absolute; right: 24px; top: 50%; transform: translateY(-50%); color: var(--secondary); font-size: 1.3rem; pointer-events: none; z-index: 5; }
         .modern-date-input { position: relative; cursor: pointer; }
@@ -162,7 +156,7 @@
         .select-trigger:hover { border-color: var(--primary); background: white; }
         .select-options { 
             position: absolute; top: 110%; left: 0; width: 100%; background: white; border-radius: 22px; 
-            box-shadow: 0 20px 60px rgba(0,0,0,0.15); display: none; overflow: hidden; border: 1.5px solid #f1f5f9; z-index: 500;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15); display: none; overflow: hidden; border: 1px solid #f1f5f9; z-index: 500;
             animation: fadeIn 0.3s ease;
         }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
@@ -170,7 +164,7 @@
         .select-option:hover { background: #fff1f2; color: var(--secondary); }
 
         /* ==========================================================================
-           5. HABIT & LOGIC VISUALS
+           5. HABIT MASTER & DASHBOARD LOGIC
            ========================================================================== */
         .folder-container { background: #fff1f2; padding: 2.5rem; border-radius: var(--radius-lg); margin-bottom: 2.5rem; border: 2px solid #fce7f3; }
         .folder-title { font-weight: 900; color: var(--secondary); font-size: 1.3rem; text-transform: uppercase; letter-spacing: 1px; }
@@ -188,8 +182,15 @@
         .cal-day.marked::after { content: '✔'; position: absolute; font-size: 0.7rem; bottom: 5px; }
 
         /* ==========================================================================
-           6. TABLES, BADGES & BUTTONS
+           6. BUTTONS, TABLES & MOBILE NAV
            ========================================================================== */
+        .btn { padding: 16px 32px; border-radius: 22px; border: none; font-weight: 800; cursor: pointer; transition: 0.3s; display: inline-flex; align-items: center; gap: 12px; font-size: 0.95rem; }
+        .btn:hover { transform: translateY(-4px); opacity: 0.95; }
+        .btn-primary { background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; box-shadow: 0 10px 30px rgba(249, 115, 22, 0.3); }
+        .btn-success { background: var(--accent); color: white; }
+        .btn-danger { background: #fff1f0; color: var(--danger); }
+        .btn-outline { background: transparent; border: 3px solid #f1f5f9; color: var(--text-muted); }
+
         .table-container { overflow-x: auto; border-radius: 22px; border: 2px solid #f8fafc; }
         table { width: 100%; border-collapse: collapse; min-width: 700px; background: white; }
         th { text-align: left; padding: 24px 20px; color: var(--text-muted); font-size: 0.85rem; border-bottom: 3px solid #f8fafc; font-weight: 900; text-transform: uppercase; letter-spacing: 1px; }
@@ -199,39 +200,31 @@
         .badge-income { background: #dcfce7; color: #16a34a; }
         .badge-expense { background: #fee2e2; color: #dc2626; }
 
-        .btn { padding: 16px 32px; border-radius: 22px; border: none; font-weight: 800; cursor: pointer; transition: 0.3s; display: inline-flex; align-items: center; gap: 12px; font-size: 0.95rem; }
-        .btn:hover { transform: translateY(-4px); opacity: 0.95; }
-        .btn:active { transform: scale(0.96); }
-        .btn-primary { background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; box-shadow: 0 10px 30px rgba(249, 115, 22, 0.3); }
-        .btn-success { background: var(--accent); color: white; box-shadow: 0 10px 25px rgba(34, 197, 94, 0.2); }
-        .btn-danger { background: #fff1f0; color: var(--danger); }
-        .btn-outline { background: transparent; border: 3px solid #f1f5f9; color: var(--text-muted); }
-
         /* ==========================================================================
-           7. MODALS & TOAST NOTIFICATIONS
+           7. MODALS & SYSTEM FEEDBACK
            ========================================================================== */
         .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.45); z-index: 5000; align-items: center; justify-content: center; backdrop-filter: blur(15px); padding: 1.5rem; }
         .modal-content { background: white; padding: 4rem; border-radius: var(--radius-lg); width: 100%; max-width: 620px; animation: modalBounce 0.6s cubic-bezier(0.34, 1.56, 0.64, 1); box-shadow: 0 40px 100px -20px rgba(0,0,0,0.35); }
         @keyframes modalBounce { from { transform: scale(0.8) translateY(60px); opacity: 0; } to { transform: scale(1) translateY(0); opacity: 1; } }
 
         #toast-container { position: fixed; top: 40px; right: 40px; z-index: 9999; }
-        .toast { background: white; padding: 24px 36px; border-radius: 28px; box-shadow: 0 20px 60px rgba(0,0,0,0.12); margin-bottom: 15px; transform: translateX(180%); transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); border-left: 12px solid var(--primary); font-weight: 800; display: flex; align-items: center; gap: 15px; }
+        .toast { background: white; padding: 24px 36px; border-radius: 28px; box-shadow: 0 20px 60px rgba(0,0,0,0.12); margin-bottom: 15px; transform: translateX(180%); transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); border-left: 10px solid var(--primary); font-weight: 800; display: flex; align-items: center; gap: 15px; }
         .toast.show { transform: translateX(0); }
 
         /* ==========================================================================
-           8. MOBILE ADAPTATION (THUMB LOGIC)
+           8. MOBILE ADAPTATION (5-TAB NAVIGATION)
            ========================================================================== */
         @media (max-width: 1024px) {
             aside { display: none; }
-            main { margin-left: 0; padding: 2.5rem 1.5rem 15rem 1.5rem; }
+            main { margin-left: 0; padding: 2.5rem 1.2rem 15rem 1.2rem; }
             .bottom-nav {
                 display: flex; position: fixed; bottom: 0; left: 0; width: 100%; background: white;
                 padding: 24px 10px; box-shadow: 0 -20px 50px rgba(0,0,0,0.12); justify-content: space-around;
                 z-index: 2000; border-radius: 45px 45px 0 0; border-top: 2.5px solid #fff1f2;
             }
-            .bottom-nav a { text-decoration: none; color: var(--text-muted); display: flex; flex-direction: column; align-items: center; font-size: 0.75rem; font-weight: 800; gap: 10px; }
+            .bottom-nav a { text-decoration: none; color: var(--text-muted); display: flex; flex-direction: column; align-items: center; font-size: 0.65rem; font-weight: 800; gap: 8px; flex: 1; }
             .bottom-nav a.active { color: var(--secondary); transform: translateY(-12px); transition: 0.3s ease; }
-            .bottom-nav i { font-size: 1.6rem; }
+            .bottom-nav i { font-size: 1.5rem; }
             .grid-2 { grid-template-columns: 1fr; }
             .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 1.2rem; }
             .special-name { font-size: 2.1rem; }
@@ -243,13 +236,14 @@
     <div id="toast-container"></div>
 
     <aside>
-        <div class="logo">
-            <img src="logo/LOGO FMI.jpg" alt="FamilyPlanFit Logo" class="site-logo" width="42" height="42"> <span id="branding-text"></span>
+        <div class="logo" id="aside-branding-area">
+            <!-- <img src="logo/LOGO FMI.jpg" alt="FMI Logo" class="site-logo">  -->
+            <span id="branding-text">FMI Sovereign</span>
         </div>
         <nav class="nav-menu">
             <a class="nav-link active" onclick="switchTab('dashboard')"><i class="fas fa-th-large"></i> <span data-i18n="nav_dash">Dashboard</span></a>
             <a class="nav-link" onclick="switchTab('finance')"><i class="fas fa-wallet"></i> <span data-i18n="nav_fin">Keuangan</span></a>
-            <a class="nav-link" onclick="switchTab('habits')"><i class="fas fa-calendar-check"></i> <span data-i18n="nav_hab">Habit</span></a>
+            <a class="nav-link" onclick="switchTab('habits')"><i class="fas fa-calendar-check"></i> <span data-i18n="nav_hab">Habit Master</span></a>
             <a class="nav-link" onclick="switchTab('roadmap')"><i class="fas fa-map-marked-alt"></i> <span data-i18n="nav_road">Roadmap</span></a>
             <a class="nav-link" onclick="switchTab('asset')"><i class="fas fa-tools"></i> <span data-i18n="nav_asset">Maintenance</span></a>
             <a class="nav-link" onclick="switchTab('settings')"><i class="fas fa-user-gear"></i> <span data-i18n="nav_set">Pengaturan</span></a>
@@ -260,6 +254,7 @@
         <a class="active" onclick="switchTab('dashboard')"><i class="fas fa-home"></i> <span data-i18n="nav_dash">Home</span></a>
         <a onclick="switchTab('finance')"><i class="fas fa-wallet"></i> <span data-i18n="nav_fin">Fin</span></a>
         <a onclick="switchTab('habits')"><i class="fas fa-check"></i> <span data-i18n="nav_hab">Habit</span></a>
+        <a onclick="switchTab('roadmap')"><i class="fas fa-map-signs"></i> <span data-i18n="nav_road">Road</span></a>
         <a onclick="switchTab('settings')"><i class="fas fa-cog"></i> <span data-i18n="nav_set">Set</span></a>
     </div>
 
@@ -273,13 +268,10 @@
         </div>
 
         <header class="header-flex">
-            <div style="display:flex; align-items:center; gap:14px;">
-                <i class="fas fa-gem dashboard-logo" aria-hidden="true" title="Diamond"></i>
-                <div>
-                    <p id="greet-small" data-i18n="greet_small" style="font-weight: 800; color: var(--text-muted); font-size: 1.1rem; margin-bottom: 8px;"></p>
-                    <h1 class="special-name" id="display-name">Faqih Muhammad Ichsan</h1>
-                    <p id="date-now" style="color: var(--text-muted); font-size: 1rem; font-weight: 700; margin-top: 8px;"></p>
-                </div>
+            <div>
+                <p id="greet-small" data-i18n="greet_small" style="font-weight: 800; color: var(--text-muted); font-size: 1.1rem; margin-bottom: 8px;"></p>
+                <h1 class="special-name" id="display-name">Faqih Muhammad Ichsan</h1>
+                <p id="date-now" style="color: var(--text-muted); font-size: 1rem; font-weight: 700; margin-top: 8px;"></p>
             </div>
             <button class="btn btn-primary" onclick="openModal('transaction')"><i class="fas fa-plus"></i> <span data-i18n="btn_entry">Entry</span></button>
         </header>
@@ -289,18 +281,21 @@
                 <div class="stat-card"><h3>Arus Kas</h3><div class="value" id="dash-balance">Rp 0</div></div>
                 <div class="stat-card"><h3>Saving Target</h3><div class="value" style="color:var(--accent)" id="dash-saved">Rp 0</div></div>
                 <div class="stat-card"><h3>Habit Score</h3><div class="value" style="color:var(--secondary)" id="dash-habit-score">0%</div></div>
-                <div class="stat-card"><h3>Maint. Logs</h3><div class="value" style="color:var(--primary)" id="dash-asset-count">0</div></div>
+                <div class="stat-card"><h3>Asset Logs</h3><div class="value" style="color:var(--primary)" id="dash-asset-count">0</div></div>
             </div>
-            <div class="grid-2">
-                <div class="card"><h3 data-i18n="dash_cashflow" style="margin-bottom: 2rem;">Analisis Arus Kas</h3><div style="height: 280px;"><canvas id="chartFinance"></canvas></div></div>
-                <div class="card"><h3 data-i18n="dash_roadmap" style="margin-bottom: 2rem;">Prioritas Roadmap</h3><div id="dash-goals-summary"></div></div>
+            
+            <div class="grid-2" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+                <div class="card"><h3 data-i18n="dash_cashflow" style="margin-bottom: 1.5rem;">Cashflow Analysis</h3><div style="height: 250px;"><canvas id="chartFinance"></canvas></div></div>
+                <div class="card"><h3 data-i18n="dash_habit" style="margin-bottom: 1.5rem;">Habit Consistency</h3><div style="height: 250px;"><canvas id="chartHabits"></canvas></div></div>
+                <div class="card"><h3 data-i18n="dash_asset_analytics" style="margin-bottom: 1.5rem;">Asset Cost Dist.</h3><div style="height: 250px;"><canvas id="chartAssets"></canvas></div></div>
+                <div class="card"><h3 data-i18n="dash_roadmap" style="margin-bottom: 1.5rem;">Prioritas Roadmap</h3><div id="dash-goals-summary"></div></div>
             </div>
         </section>
 
         <section id="settings-section">
             <div class="grid-2">
                 <div class="card">
-                    <h2 data-i18n="set_title" style="margin-bottom: 40px; font-weight: 900;">Data Diri & Profil</h2>
+                    <h2 data-i18n="set_title" style="margin-bottom: 40px; font-weight: 900;">Profil Personal</h2>
                     <div class="form-group">
                         <label class="form-label" data-i18n="lbl_name">NAMA LENGKAP</label>
                         <input type="text" id="set-name" class="modern-input" data-placeholder-i18n="ph_name">
@@ -312,23 +307,29 @@
                             <i class="fas fa-calendar-star"></i>
                         </div>
                         <div style="background: #fff1f2; padding: 1.8rem; border-radius: 28px; border-left: 10px solid var(--secondary); margin-top: 2rem; color: #9d174d; font-weight: 800; font-size: 0.9rem; line-height: 1.6;">
-                            <i class="fas fa-sparkles"></i> <span data-i18n="lbl_bday_note">Sistem cerdas akan mendeteksi hari spesial Anda untuk kejutan notifikasi otomatis!</span>
+                            <i class="fas fa-sparkles"></i> <span data-i18n="lbl_bday_note">Sistem cerdas akan mendeteksi hari spesial Anda untuk kejutan otomatis!</span>
                         </div>
                     </div>
-                    <button class="btn btn-primary" style="width: 100%; margin-top: 20px;" onclick="saveProfile()" data-i18n="btn_save_prof">Simpan Perubahan Profil</button>
+                    <button class="btn btn-primary" style="width: 100%; margin-top: 20px;" onclick="saveProfile()" data-i18n="btn_save_prof">Update Biodata</button>
                 </div>
                 
                 <div class="card">
-                    <h2 data-i18n="lbl_app_settings" style="margin-bottom: 40px; font-weight: 900;">Kustomisasi Aplikasi</h2>
-                    
+                    <h2 data-i18n="lbl_app_settings" style="margin-bottom: 40px; font-weight: 900;">Konfigurasi Website</h2>
                     <div class="form-group">
                         <label class="form-label" data-i18n="lbl_branding">TULISAN BRANDING (SIDEBAR)</label>
                         <input type="text" id="set-branding" class="modern-input" data-placeholder-i18n="ph_branding">
-                        <button type="button" class="btn btn-primary" style="width: 100%; margin-top: 15px;" onclick="saveBranding()" data-i18n="btn_save_brand">Update Branding</button>
                     </div>
+                    <div class="form-group">
+                        <label class="form-label" data-i18n="lbl_logo">IKON WEBSITE (FONT AWESOME)</label>
+                        <div class="date-input-wrapper">
+                            <input type="text" id="set-logo" class="modern-input" data-placeholder-i18n="ph_logo">
+                            <i class="fas fa-icons"></i>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" style="width: 100%; margin-top: 10px; margin-bottom: 2rem;" onclick="saveAppStyle()" data-i18n="btn_save_brand">Simpan Visual Website</button>
 
                     <div class="form-group">
-                        <label class="form-label" data-i18n="lbl_lang">Sistem & Bahasa</label>
+                        <label class="form-label" data-i18n="lbl_lang">SISTEM BAHASA</label>
                         <div class="custom-select" id="lang-dropdown">
                             <div class="select-trigger" id="lang-selected" onclick="toggleDropdown('lang-options')">
                                 <span><i class="fas fa-globe"></i> Bahasa Indonesia</span>
@@ -341,23 +342,23 @@
                         </div>
                     </div>
 
-                    <div style="display: flex; flex-direction: column; gap: 20px; margin-top: 6rem;">
-                        <button class="btn btn-outline" onclick="exportData()"><i class="fas fa-file-csv"></i> Backup Data (CSV)</button>
-                        <button class="btn btn-danger" onclick="openConfirmModal('reset')"><i class="fas fa-trash-alt"></i> Reset Database</button>
+                    <div style="display: flex; flex-direction: column; gap: 15px; margin-top: 3rem;">
+                        <button class="btn btn-outline" onclick="exportData()"><i class="fas fa-file-csv"></i> Backup Database (CSV)</button>
+                        <button class="btn btn-danger" onclick="openConfirmModal('reset')"><i class="fas fa-trash-alt"></i> Reset Seluruh Sistem</button>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="finance-section"><div class="card"><h3 data-i18n="fin_log">Keuangan</h3><div class="table-container"><table><thead><tr><th data-i18n="th_date">Tgl</th><th data-i18n="th_type">Tipe</th><th data-i18n="th_desc">Ket</th><th data-i18n="th_amt">Jumlah</th><th data-i18n="th_action">Aksi</th></tr></thead><tbody id="finance-body"></tbody></table></div></div></section>
-        <section id="habits-section"><div class="header-flex"><h2 data-i18n="hab">Habit</h2><div style="display:flex;gap:15px"><button class="btn btn-outline" onclick="openModal('folder')"><i class="fas fa-folder-plus"></i></button><button class="btn btn-success" onclick="openModal('habit')"><i class="fas fa-plus"></i></button></div></div><div id="habits-folders-container"></div></section>
+        <section id="finance-section"><div class="card"><h3 data-i18n="fin_log">Log Arus Kas</h3><div class="table-container"><table><thead><tr><th data-i18n="th_date">Tgl</th><th data-i18n="th_type">Tipe</th><th data-i18n="th_desc">Ket</th><th data-i18n="th_amt">Jumlah</th><th data-i18n="th_action">Aksi</th></tr></thead><tbody id="finance-body"></tbody></table></div></div></section>
+        <section id="habits-section"><div class="header-flex"><h2 data-i18n="hab_master">Habit Master</h2><div style="display:flex;gap:15px"><button class="btn btn-outline" onclick="openModal('folder')"><i class="fas fa-folder-plus"></i></button><button class="btn btn-success" onclick="openModal('habit')"><i class="fas fa-plus"></i></button></div></div><div id="habits-folders-container"></div></section>
         <section id="roadmap-section"><div class="header-flex"><h2 data-i18n="road_title">Life Roadmap</h2><button class="btn btn-success" onclick="openModal('goal')"><i class="fas fa-plus"></i></button></div><div id="goals-full-list" class="grid-2" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));"></div></section>
-        <section id="asset-section"><div class="header-flex"><h2 data-i18n="nav_asset">Maintenance</h2><button class="btn btn-primary" onclick="openModal('asset')"><i class="fas fa-wrench"></i></button></div><div class="card"><div class="table-container"><table><thead><tr><th data-i18n="th_date">Tgl</th><th data-i18n="th_asset">Aset</th><th data-i18n="th_act">Tindakan</th><th data-i18n="th_cost">Biaya</th><th data-i18n="th_action">Aksi</th></tr></thead><tbody id="asset-body"></tbody></table></div></div></section>
+        <section id="asset-section"><div class="header-flex"><h2>Maintenance</h2><button class="btn btn-primary" onclick="openModal('asset')"><i class="fas fa-wrench"></i></button></div><div class="card"><div class="table-container"><table><thead><tr><th data-i18n="th_date">Tgl</th><th data-i18n="th_asset">Aset</th><th data-i18n="th_act">Tindakan</th><th data-i18n="th_cost">Biaya</th><th data-i18n="th_action">Aksi</th></tr></thead><tbody id="asset-body"></tbody></table></div></div></section>
     </main>
 
     <div class="modal" id="modal">
         <div class="modal-content">
-            <h2 id="modal-title" style="font-weight: 900; margin-bottom: 20px;">Entry</h2>
+            <h2 id="modal-title" style="font-weight: 900;">Entry</h2>
             <form id="data-form" style="margin-top: 2rem;">
                 <div id="dynamic-fields"></div>
                 <div style="display: flex; gap: 20px; margin-top: 4rem;">
@@ -385,9 +386,9 @@
 
     <div class="modal" id="confirm-modal">
         <div class="modal-content" style="text-align: center;">
-            <i class="fas fa-exclamation-triangle" style="font-size: 6rem; color: var(--danger); margin-bottom: 2.5rem; filter: drop-shadow(0 15px 25px rgba(239, 68, 68, 0.2));"></i>
+            <i class="fas fa-triangle-exclamation" style="font-size: 6rem; color: var(--danger); margin-bottom: 2.5rem; filter: drop-shadow(0 15px 25px rgba(239, 68, 68, 0.2));"></i>
             <h2 id="confirm-title" data-i18n="conf_title" style="font-weight: 900; margin-bottom: 12px; font-size: 2rem;">Hapus?</h2>
-            <p id="confirm-desc" style="color: var(--text-muted); font-weight: 700; margin-bottom: 3.5rem; font-size: 1.1rem;">Tindakan ini permanen dan data Anda akan hilang selamanya!</p>
+            <p id="confirm-desc" style="color: var(--text-muted); font-weight: 700; margin-bottom: 3.5rem; font-size: 1.1rem;">Tindakan ini tidak dapat dibatalkan!</p>
             <div style="display: flex; gap: 20px;">
                 <button class="btn btn-outline" style="flex: 1;" onclick="closeConfirmModal()" data-i18n="btn_cancel">Batal</button>
                 <button id="confirm-proceed-btn" class="btn btn-danger" style="flex: 1;" data-i18n="btn_confirm">Ya, Hapus</button>
@@ -398,91 +399,61 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
         /**
-         * FAMILY FIN FIT PRO - DIAMOND SOVEREIGN CORE ENGINE
-         * Version: 2.6.0 (Grand Finale V16)
-         * Author: Gemini AI for Faqih Muhammad Ichsan (Amikom)
+         * FAMILY FIN FIT PRO - DIAMOND SOVEREIGN ULTIMATE X
+         * Version: 2.9.0 (FMI Grand Final V21)
+         * Author: Gemini AI for Faqih Muhammad Ichsan (Amikom Purwokerto)
          */
 
-        // --- 1. GLOBAL DATABASE SYSTEM ---
-        // Robust DB load: safe JSON parsing, sane defaults, and persistence if defaults filled
-        let db;
-        try {
-            const raw = localStorage.getItem('fff_diamond_royal_final_V16');
-            db = raw ? JSON.parse(raw) : null;
-        } catch (err) {
-            console.error('Failed to parse localStorage DB, falling back to defaults', err);
-            db = null;
-        }
-        if (!db || typeof db !== 'object') {
-            db = {
-                profile: { name: 'Faqih Muhammad Ichsan', bday: '' },
-                app: { branding: 'Diamond Royal' },
-                lang: 'id',
-                transactions: [], assets: [], goals: [], folders: [], habits: [], habitEntries: {}
-            };
-            try { localStorage.setItem('fff_diamond_royal_final_V16', JSON.stringify(db)); } catch(e) { console.error('Failed to persist default DB', e); }
-        } else {
-            // Ensure expected structure and defaults
-            db.profile = db.profile || { name: 'Faqih Muhammad Ichsan', bday: '' };
-            db.app = db.app || { branding: 'Diamond Royal' };
-            if (!db.app.branding) db.app.branding = 'Diamond Royal';
-            db.lang = db.lang || 'id';
-            db.transactions = db.transactions || [];
-            db.assets = db.assets || [];
-            db.goals = db.goals || [];
-            db.folders = db.folders || [];
-            db.habits = db.habits || [];
-            db.habitEntries = db.habitEntries || {};
-            // If we filled any missing defaults, persist back
-            try { localStorage.setItem('fff_diamond_royal_final_V16', JSON.stringify(db)); } catch(e) { /* ignore persist errors */ }
-        }
+        // --- 1. GLOBAL DATABASE ARCHITECTURE ---
+        let db = JSON.parse(localStorage.getItem('fff_royal_v21_master')) || {
+            profile: { name: 'Faqih Muhammad Ichsan', bday: '' },
+            app: { branding: 'FMI Sovereign', logo: 'fa-gem' },
+            lang: 'id', 
+            transactions: [], assets: [], goals: [], folders: [], habits: [], habitEntries: {}
+        };
 
         const i18n = {
             id: {
                 nav_dash: "Dashboard", nav_fin: "Keuangan", nav_hab: "Habits", nav_road: "Roadmap", nav_asset: "Maintenance", nav_set: "Pengaturan",
-                greet_small: "Halo, Selamat Datang!", btn_entry: "Entry", dash_cashflow: "Analisis Arus Kas", dash_roadmap: "Prioritas Roadmap",
-                set_title: "Profil & Biodata", lbl_name: "NAMA LENGKAP", lbl_bday: "TANGGAL LAHIR",
-                lbl_bday_note: "Sistem cerdas akan mendeteksi hari spesial Anda untuk kejutan notifikasi otomatis!", ph_name: "Nama Anda",
-                btn_save_prof: "Simpan Profil", lbl_lang: "Sistem & Bahasa", fin_log: "Keuangan", lbl_app_settings: "Kustomisasi Aplikasi",
-                lbl_branding: "TULISAN BRANDING", ph_branding: "Ubah Nama App di Sidebar", btn_save_brand: "Simpan Branding",
-                hab: "Habit", road_title: "Life Roadmap", btn_cancel: "Batal", btn_save: "Simpan Data",
+                greet_small: "Halo, Selamat Datang!", btn_entry: "Entry Baru", dash_cashflow: "Arus Kas", dash_roadmap: "Prioritas Roadmap",
+                dash_habit: "Analisis Konsistensi", dash_asset_analytics: "Distribusi Biaya Aset",
+                set_title: "Profil Personal", lbl_name: "NAMA LENGKAP", lbl_bday: "TANGGAL LAHIR",
+                lbl_bday_note: "Sistem cerdas akan otomatis mendeteksi hari ulang tahun Anda untuk kejutan visual!", ph_name: "Nama Anda",
+                btn_save_prof: "Update Biodata", lbl_lang: "Sistem Bahasa", fin_log: "Log Arus Kas", lbl_app_settings: "Konfigurasi Website",
+                lbl_branding: "TULISAN BRANDING", ph_branding: "Ubah Nama Website", lbl_logo: "IKON WEBSITE", ph_logo: "Class (fa-rocket)",
+                btn_save_brand: "Simpan Visual", hab_master: "Habit Master", road_title: "Life Roadmap", btn_cancel: "Batal", btn_save: "Simpan Data",
                 btn_close: "Tutup", btn_strike: "Tandai Hari Ini", conf_title: "Hapus Data?", btn_confirm: "Ya, Hapus", lbl_note: "Catatan Progres",
-                ph_progress: "Tulis kemajuanmu hari ini...", ph_desc: "Keterangan...", lbl_type: "Tipe Transaksi", exp: "Pengeluaran", inc: "Pemasukan",
-                bday_t: "Selamat Ulang Tahun, Faqih! 🎂", bday_m: "Semoga hari spesialmu membawa kebahagiaan dan kelancaran target hidupmu!",
+                ph_progress: "Tulis kemajuan harian...", ph_desc: "Keterangan...", lbl_type: "Tipe Transaksi", exp: "Pengeluaran", inc: "Pemasukan",
+                bday_t: "Selamat Ulang Tahun! 🎂", bday_m: "Semoga hari spesialmu membawa kelancaran target hidupmu!",
                 th_date: "Tgl", th_type: "Tipe", th_desc: "Ket", th_amt: "Jumlah", th_action: "Aksi",
                 th_asset: "Aset", th_act: "Tindakan", th_cost: "Biaya", lbl_target: "Target", lbl_dl: "Deadline", ph_asset: "PC / Supra X"
             },
             en: {
                 nav_dash: "Dashboard", nav_fin: "Finance", nav_hab: "Habits", nav_road: "Roadmap", nav_asset: "Maintenance", nav_set: "Settings",
-                greet_small: "Hello, Welcome Back!", btn_entry: "Entry", dash_cashflow: "Cashflow Analysis", dash_roadmap: "Priority Roadmap",
-                set_title: "Profile Data", lbl_name: "FULL NAME", lbl_bday: "BIRTH DATE",
-                lbl_bday_note: "Smart system will detect your birthday and provide a special surprise notification!", ph_name: "Your Name",
-                btn_save_prof: "Save Profile", lbl_lang: "Language & System", fin_log: "Finance Logs", lbl_app_settings: "App Customization",
-                lbl_branding: "BRANDING TEXT", ph_branding: "Change App Name on Sidebar", btn_save_brand: "Save Branding",
-                hab: "Habit", road_title: "Life Roadmap", btn_cancel: "Cancel", btn_save: "Save Data",
-                btn_close: "Close", btn_strike: "Strike Today", conf_title: "Delete Data?", btn_confirm: "Yes, Delete", lbl_note: "Progress Notes",
-                ph_progress: "Write your progress...", ph_desc: "Description...", lbl_type: "Transaction Type", exp: "Expense", inc: "Income",
-                bday_t: "Happy Birthday, Faqih! 🎂", bday_m: "May your special day bring joy and success to all your goals!",
+                greet_small: "Hello, Welcome Back!", btn_entry: "New Entry", dash_cashflow: "Cashflow Trends", dash_roadmap: "Priority Roadmap",
+                dash_habit: "Habit Consistency", dash_asset_analytics: "Asset Cost Dist.",
+                set_title: "Personal Profile", lbl_name: "FULL NAME", lbl_bday: "BIRTH DATE",
+                lbl_bday_note: "System will detect your birthday and provide a visual surprise!", ph_name: "Your Name",
+                btn_save_prof: "Update Data", lbl_lang: "Language Setup", fin_log: "Cashflow Logs", lbl_app_settings: "Website Config",
+                lbl_branding: "BRANDING TEXT", ph_branding: "Change Website Name", lbl_logo: "APP ICON", ph_logo: "Class (fa-rocket)",
+                btn_save_brand: "Save Visuals", hab_master: "Habit Master", road_title: "Life Roadmap", btn_cancel: "Cancel", btn_save: "Save Data",
+                btn_close: "Close", btn_strike: "Strike Today", conf_title: "Delete Data?", btn_confirm: "Yes, Delete", lbl_note: "Progress Note",
+                ph_progress: "Write daily progress...", ph_desc: "Description...", lbl_type: "Transaction Type", exp: "Expense", inc: "Income",
+                bday_t: "Happy Birthday! 🎂", bday_m: "May your special day bring joy and smooth success for your goals!",
                 th_date: "Date", th_type: "Type", th_desc: "Desc", th_amt: "Amount", th_action: "Action",
                 th_asset: "Asset", th_act: "Action", th_cost: "Cost", lbl_target: "Target", lbl_dl: "Deadline", ph_asset: "PC / Motorbike"
             }
         };
 
-        let mainFinanceChartInstance = null;
+        let charts = { finance: null, habits: null, assets: null };
 
         // --- 2. ENGINE INITIALIZATION ---
         function init() {
-            // Load Branding
-            // Defensive: ensure db.app and branding exist (fixes case where restart shows default despite save)
-            db.app = db.app || { branding: 'Diamond Royal' };
-            if (!db.app.branding) { db.app.branding = 'Diamond Royal'; try { localStorage.setItem('fff_diamond_royal_final_V16', JSON.stringify(db)); } catch(e) { console.error('Failed to persist default branding', e); } }
             document.getElementById('branding-text').innerText = db.app.branding;
-            const setBrandEl = document.getElementById('set-branding');
-            setBrandEl.value = db.app.branding;
-            // Prevent Enter key from submitting any form or triggering unexpected reloads
-            setBrandEl.addEventListener('keydown', (e) => { if (e.key === 'Enter') { e.preventDefault(); saveBranding(); } });
-            
-            // Load Profile
+            document.getElementById('web-title').innerText = `${db.app.branding} | FamilyFinFit Pro`;
+            document.getElementById('set-branding').value = db.app.branding;
+            document.getElementById('app-logo-icon').className = `fas ${db.app.logo}`;
+            document.getElementById('set-logo').value = db.app.logo;
             document.getElementById('set-name').value = db.profile.name;
             document.getElementById('set-bday').value = db.profile.bday;
             
@@ -493,7 +464,7 @@
             setInterval(updateTime, 1000);
             checkBirthday();
 
-            // DROPDOWN AUTO-CLOSE MOUSE LEAVE LOGIC
+            // DROPDOWN AUTO-CLOSE LOGIC
             ['lang-dropdown', 'trans-type-dropdown'].forEach(id => {
                 const el = document.getElementById(id);
                 if (el) el.addEventListener('mouseleave', () => {
@@ -503,9 +474,9 @@
             });
         }
 
-        // --- 3. PERSISTENCE & LANGUAGE ENGINE ---
+        // --- 3. PERSISTENCE ENGINE ---
         function save() {
-            localStorage.setItem('fff_diamond_royal_final_V16', JSON.stringify(db));
+            localStorage.setItem('fff_royal_v21_master', JSON.stringify(db));
             renderAll();
             updateCharts();
         }
@@ -520,69 +491,50 @@
             applyLanguage();
             save();
             document.getElementById('lang-options').style.display = 'none';
-            showToast(lang === 'id' ? 'Bahasa Berhasil Diubah' : 'Language Successfully Changed');
-        }
-
-        function selectTransType(type) {
-            const dict = i18n[db.lang];
-            document.getElementById('t_type').value = type;
-            document.getElementById('trans-selected').innerText = type === 'income' ? dict.inc : dict.exp;
-            document.getElementById('trans-options').style.display = 'none';
+            showToast(lang === 'id' ? 'Bahasa Diubah' : 'Language Changed');
         }
 
         function applyLanguage() {
             const dict = i18n[db.lang];
-            
-            // Core Text Translation
             document.querySelectorAll('[data-i18n]').forEach(el => {
                 const key = el.getAttribute('data-i18n');
                 if(dict[key]) el.innerText = dict[key];
             });
-            
-            // Placeholder Translation
             document.querySelectorAll('[data-placeholder-i18n]').forEach(el => {
                 const key = el.getAttribute('data-placeholder-i18n');
                 if(dict[key]) el.placeholder = dict[key];
             });
-            
             const langLabel = db.lang === 'id' ? '🇮🇩 Bahasa Indonesia' : '🇺🇸 English (US)';
             const ddHeader = document.getElementById('lang-selected');
             if(ddHeader) ddHeader.innerHTML = `<span><i class="fas fa-globe"></i> ${langLabel}</span> <i class="fas fa-chevron-down"></i>`;
-            
             document.getElementById('bday-title').innerText = dict.bday_t;
             document.getElementById('bday-text').innerText = dict.bday_m;
-            
             renderAll(); 
         }
 
         // --- 4. BRANDING & PROFILE ACTIONS ---
-        function saveBranding() {
+        function saveAppStyle() {
             const newBrand = document.getElementById('set-branding').value.trim();
-            if(!newBrand) return showToast('Error: Branding name cannot be empty!', 'error');
-            db.app = db.app || {};
+            const newLogo = document.getElementById('set-logo').value.trim();
+            if(!newBrand || !newLogo) return showToast('Error: Form kosong!', 'error');
             db.app.branding = newBrand;
+            db.app.logo = newLogo;
             document.getElementById('branding-text').innerText = newBrand;
-            // Try to persist immediately and handle errors explicitly
-            try {
-                localStorage.setItem('fff_diamond_royal_final_V16', JSON.stringify(db));
-            } catch (err) {
-                console.error('Failed to persist branding', err);
-                return showToast('Error: Failed to save branding to storage', 'error');
-            }
-            // Re-render and update charts
-            try { renderAll(); updateCharts(); } catch(e) { console.error('Render failed after branding save', e); }
-            showToast('App Branding Updated! 💎');
+            document.getElementById('web-title').innerText = `${newBrand} | FamilyFinFit Pro`;
+            document.getElementById('app-logo-icon').className = `fas ${newLogo}`;
+            save();
+            showToast('Visual Diperbarui! 💎');
         }
 
         function saveProfile() {
             const nameVal = document.getElementById('set-name').value.trim();
-            if(!nameVal) return showToast('Error: Nama tidak boleh kosong!', 'error');
+            if(!nameVal) return showToast('Error: Nama kosong!', 'error');
             db.profile.name = nameVal;
             db.profile.bday = document.getElementById('set-bday').value;
             save();
             document.getElementById('display-name').innerText = db.profile.name;
             checkBirthday();
-            showToast('Profile Successfully Saved ✨');
+            showToast('Profil Disimpan! ✨');
         }
 
         function checkBirthday() {
@@ -592,22 +544,24 @@
             else document.getElementById('bday-banner').style.display = 'none';
         }
 
-        // --- 5. DATA RENDERING SYSTEM ---
+        // --- 5. RENDER SYSTEM ENGINE (SAVING TARGET FIXED) ---
         function renderAll() {
             const income = db.transactions.filter(t => t.type === 'income').reduce((s, x) => s + x.amt, 0);
             const expense = db.transactions.filter(t => t.type === 'expense').reduce((s, x) => s + x.amt, 0);
+            const totalSaved = db.goals.reduce((sum, goal) => sum + goal.current, 0);
+
             document.getElementById('dash-balance').innerText = formatIDR(income - expense);
-            document.getElementById('dash-saved').innerText = formatIDR(db.goals.reduce((s,x)=>s+x.current, 0));
+            document.getElementById('dash-saved').innerText = formatIDR(totalSaved);
             document.getElementById('dash-asset-count').innerText = db.assets.length;
             document.getElementById('display-name').innerText = db.profile.name;
 
             const todayKey = new Date().toISOString().split('T')[0];
-            let doneCount = 0; db.habits.forEach(h => { if(db.habitEntries[`${h.id}_${todayKey}`]?.completed) doneCount++; });
-            document.getElementById('dash-habit-score').innerText = db.habits.length > 0 ? Math.round((doneCount / db.habits.length)*100) + '%' : '0%';
+            let done = 0; db.habits.forEach(h => { if(db.habitEntries[`${h.id}_${todayKey}`]?.completed) done++; });
+            document.getElementById('dash-habit-score').innerText = db.habits.length > 0 ? Math.round((done / db.habits.length)*100) + '%' : '0%';
 
             const d = i18n[db.lang];
             
-            // Finance
+            // Finance Table
             document.getElementById('finance-body').innerHTML = db.transactions.map(t => `
                 <tr><td>${new Date(t.date).toLocaleDateString()}</td><td><span class="badge ${t.type==='income'?'badge-income':'badge-expense'}">${t.type==='income'?d.inc:d.exp}</span></td><td>${t.desc}</td><td><strong>${formatIDR(t.amt)}</strong></td><td><button class="btn btn-danger btn-sm" onclick="openConfirmModal('transactions', ${t.id})"><i class="fas fa-trash"></i></button></td></tr>
             `).join('') || `<tr><td colspan="5" style="text-align:center;padding:3rem;opacity:0.3">...</td></tr>`;
@@ -618,20 +572,18 @@
                 return `<div class="folder-container"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:2rem"><span class="folder-title">${f.name}</span> <button class="btn btn-danger btn-sm" onclick="openConfirmModal('folders', ${f.id})"><i class="fas fa-times"></i></button></div>${hbts || '<p style="opacity:0.5;font-size:0.9rem">Folder Kosong</p>'}</div>`;
             }).join('') || '<div style="text-align:center;opacity:0.2;padding:4rem;"><i class="fas fa-folder-open fa-4x"></i></div>';
 
-            // Maintenance
+            // Maintenance & Roadmap
             document.getElementById('asset-body').innerHTML = db.assets.map(a => `<tr><td>${new Date(a.date).toLocaleDateString()}</td><td>${a.asset}</td><td>${a.act}</td><td>${formatIDR(a.cost)}</td><td><button class="btn btn-danger btn-sm" onclick="openConfirmModal('assets', ${a.id})"><i class="fas fa-trash"></i></button></td></tr>`).join('');
-
-            // Roadmap
             document.getElementById('goals-full-list').innerHTML = db.goals.map(g => {
                 const p = Math.min(Math.round((g.current/g.target)*100), 100);
-                return `<div class="card"><div style="display:flex;justify-content:space-between"><strong>${g.name}</strong><small style="font-weight:800">${new Date(g.date).getFullYear()}</small></div><div style="margin:15px 0;font-size:1.3rem;font-weight:900">${formatIDR(g.current)} / ${formatIDR(g.target)}</div><div class="goal-progress-bg"><div class="goal-progress-fill" style="width:${p}%"></div></div><div style="display:flex;justify-content:space-between;align-items:center"><span>${p}%</span><button class="btn btn-primary btn-sm" onclick="openModal('allocation', ${g.id})">+ Save</button></div></div>`;
+                return `<div class="card"><div style="display:flex;justify-content:space-between"><strong>${g.name}</strong><small style="font-weight:800">${new Date(g.date).getFullYear()}</small></div><div style="margin:12px 0;font-size:1.3rem;font-weight:900">${formatIDR(g.current)} / ${formatIDR(g.target)}</div><div class="goal-progress-bg" style="height:10px; background:#f1f5f9; border-radius:20px; margin:15px 0; overflow:hidden;"><div style="height:100%; background:linear-gradient(90deg, var(--primary), var(--secondary)); width:${p}%"></div></div><div style="display:flex;justify-content:space-between;align-items:center"><span>${p}%</span><button class="btn btn-primary btn-sm" onclick="openModal('allocation', ${g.id})">+ Save</button></div></div>`;
             }).join('');
             
             // Dashboard Goals
             document.getElementById('dash-goals-summary').innerHTML = db.goals.slice(0, 3).map(g => {
-                const percentage = Math.min(Math.round((g.current/g.target)*100), 100);
-                return `<div style="margin-bottom:1.5rem;font-size:0.85rem"><div style="display:flex;justify-content:space-between;margin-bottom:5px"><span>${g.name}</span><span>${percentage}%</span></div><div class="goal-progress-bg" style="height:6px;margin:0"><div class="goal-progress-fill" style="width:${percentage}%"></div></div></div>`;
-            }).join('') || '<p style="opacity:0.5;text-align:center;">No Roadmap Set</p>';
+                const p = Math.min(Math.round((g.current/g.target)*100), 100);
+                return `<div style="margin-bottom:1.5rem;font-size:0.85rem"><div style="display:flex;justify-content:space-between;margin-bottom:5px"><span>${g.name}</span><span>${p}%</span></div><div class="goal-progress-bg" style="height:6px;margin:0; background:#f1f5f9; border-radius:10px; overflow:hidden;"><div style="height:100%; background:var(--primary); width:${p}%"></div></div></div>`;
+            }).join('') || '<p style="opacity:0.5;text-align:center;">No Targets Set</p>';
         }
 
         // --- 6. GLOBAL UTILS ---
@@ -659,11 +611,11 @@
             db.transactions.forEach(t => csv += `${t.date},${t.type},${t.desc},${t.amt}\n`);
             const b = new Blob([csv], { type: 'text/csv' });
             const u = URL.createObjectURL(b); const a = document.createElement('a'); a.href = u;
-            a.download = `Sovereign_Report_${new Date().getFullYear()}.csv`;
-            a.click(); showToast('CSV Exported!');
+            a.download = `Elite_Report_FMI.csv`;
+            a.click(); showToast('CSV Exported! 💾');
         }
 
-        // --- 7. HABIT Calendar Fixed Logic ---
+        // --- 7. HABIT Master Calendar Core Logic ---
         function openHabitCalendar(id) {
             const h = db.habits.find(x => x.id === id);
             document.getElementById('habit-detail-title').innerText = h.name;
@@ -676,7 +628,7 @@
             }
             const todayStr = now.toISOString().split('T')[0];
             document.getElementById('habit-note').value = db.habitEntries[`${id}_${todayStr}`]?.note || '';
-            document.getElementById('save-habit-entry').onclick = () => { toggleHabitDate(id, todayStr, true, document.getElementById('habit-note').value); closeHabitModal(); showToast('Habit Strike Recorded! ✨'); };
+            document.getElementById('save-habit-entry').onclick = () => { toggleHabitDate(id, todayStr, true, document.getElementById('habit-note').value); closeHabitModal(); showToast('Strike Recorded! ✨'); };
             document.getElementById('habit-detail-modal').style.display = 'flex';
         }
 
@@ -706,7 +658,7 @@
             document.getElementById('confirm-modal').style.display = 'flex';
             document.getElementById('confirm-proceed-btn').onclick = () => {
                 if(type==='reset') { localStorage.clear(); location.reload(); }
-                else { db[type] = db[type].filter(i=>i.id!==id); save(); closeConfirmModal(); showToast('Data Removed'); }
+                else { db[type] = db[type].filter(i=>i.id!==id); save(); closeConfirmModal(); showToast('Removed Successfully'); }
             };
         }
 
@@ -719,19 +671,19 @@
                 applyLanguage();
                 document.getElementById('data-form').onsubmit = (e) => { e.preventDefault(); db.transactions.unshift({ id: Date.now(), type: document.getElementById('t_type').value, desc: document.getElementById('t_desc').value, amt: parseInt(document.getElementById('t_amt').value), date: new Date().toISOString() }); closeModal(); save(); showToast('Saved! ✨'); };
             } else if(type === 'folder') {
-                document.getElementById('modal-title').innerText = 'New Folder';
+                document.getElementById('modal-title').innerText = 'New Category';
                 fields.innerHTML = `<div class="form-group"><label class="form-label">Category Name</label><input id="f_name" class="modern-input" required></div>`;
                 document.getElementById('data-form').onsubmit = (e) => { e.preventDefault(); db.folders.push({ id: Date.now(), name: document.getElementById('f_name').value }); closeModal(); save(); showToast('Folder Created'); };
             } else if(type === 'habit') {
                 const options = db.folders.map(f => `<option value="${f.id}">${f.name}</option>`).join('');
                 document.getElementById('modal-title').innerText = 'New Habit';
-                fields.innerHTML = `<div class="form-group"><label class="form-label">Category</label><select id="h_folder" class="modern-input" style="padding-left:20px">${options}</select></div><div class="form-group"><label class="form-label">Name</label><input id="h_name" class="modern-input" required></div>`;
+                fields.innerHTML = `<div class="form-group"><label class="form-label">Folder</label><select id="h_folder" class="modern-input" style="padding-left:20px">${options}</select></div><div class="form-group"><label class="form-label">Name</label><input id="h_name" class="modern-input" required></div>`;
                 document.getElementById('data-form').onsubmit = (e) => { e.preventDefault(); db.habits.push({ id: Date.now(), folderId: parseInt(document.getElementById('h_folder').value), name: document.getElementById('h_name').value }); closeModal(); save(); };
             } else if(type === 'asset') {
                 document.getElementById('modal-title').innerText = d.nav_asset;
                 fields.innerHTML = `<div class="form-group"><label class="form-label">${d.th_asset}</label><input id="m_asset" class="modern-input" data-placeholder-i18n="ph_asset" required></div><div class="form-group"><label class="form-label">${d.th_act}</label><input id="m_act" class="modern-input" required></div><div class="form-group"><label class="form-label">${d.th_cost}</label><input type="number" id="m_cost" class="modern-input" required></div>`;
                 applyLanguage();
-                document.getElementById('data-form').onsubmit = (e) => { e.preventDefault(); const cost = parseInt(document.getElementById('m_cost').value); const label = `Fix [${document.getElementById('m_asset').value}]: ${document.getElementById('m_act').value}`; db.assets.unshift({ id: Date.now(), asset: document.getElementById('m_asset').value, act: document.getElementById('m_act').value, cost, date: new Date().toISOString() }); db.transactions.unshift({ id: Date.now(), type: 'expense', desc: label, amt: cost, date: new Date().toISOString() }); closeModal(); save(); };
+                document.getElementById('data-form').onsubmit = (e) => { e.preventDefault(); const a = parseInt(document.getElementById('m_cost').value); const l = `Fix [${document.getElementById('m_asset').value}]: ${document.getElementById('m_act').value}`; db.assets.unshift({ id: Date.now(), asset: document.getElementById('m_asset').value, act: document.getElementById('m_act').value, cost: a, date: new Date().toISOString() }); db.transactions.unshift({ id: Date.now(), type: 'expense', desc: l, amt: a, date: new Date().toISOString() }); closeModal(); save(); };
             } else if(type === 'goal') {
                 document.getElementById('modal-title').innerText = d.road_title;
                 fields.innerHTML = `<div class="form-group"><label class="form-label">${d.lbl_target}</label><input id="g_name" class="modern-input" required></div><div class="form-group"><label class="form-label">${d.th_amt}</label><input type="number" id="g_target" class="modern-input" required></div><div class="form-group"><label class="form-label">${d.lbl_dl}</label><div class="date-input-wrapper"><input type="date" id="g_date" class="modern-input modern-date-input" required><i class="fas fa-calendar-day"></i></div></div>`;
@@ -739,41 +691,64 @@
             } else if(type === 'allocation') {
                 const goal = db.goals.find(x => x.id === extraId);
                 document.getElementById('modal-title').innerText = d.nav_road;
-                fields.innerHTML = `<p style="margin-bottom:1rem;font-weight:700;color:var(--secondary)">Target: ${goal.name}</p><div class="form-group"><label class="form-label">${d.th_amt}</label><input type="number" id="a_amt" class="modern-input" required></div>`;
+                fields.innerHTML = `<p style="margin-bottom:1rem;font-weight:700;color:var(--secondary)">Targeting: ${goal.name}</p><div class="form-group"><label class="form-label">${d.th_amt}</label><input type="number" id="a_amt" class="modern-input" required></div>`;
                 document.getElementById('data-form').onsubmit = (e) => { e.preventDefault(); const a = parseInt(document.getElementById('a_amt').value); goal.current += a; db.transactions.unshift({ id: Date.now(), type: 'expense', desc: `Saving: ${goal.name}`, amt: a, date: new Date().toISOString() }); closeModal(); save(); showToast('Saved! ✨'); };
             }
         }
 
-        // --- 9. CHARTS ENGINE ---
+        // --- 9. TRIPLE ANALYTICS ENGINE ---
         function initCharts() {
-            const ctx = document.getElementById('chartFinance').getContext('2d');
-            mainFinanceChartInstance = new Chart(ctx, {
+            const ctxFin = document.getElementById('chartFinance').getContext('2d');
+            const ctxHab = document.getElementById('chartHabits').getContext('2d');
+            const ctxAst = document.getElementById('chartAssets').getContext('2d');
+            
+            charts.finance = new Chart(ctxFin, {
                 type: 'line',
-                data: {
-                    labels: ['H-6','H-5','H-4','H-3','H-2','H-1','Today'],
-                    datasets: [{
-                        label: 'Cashflow', data: [0,0,0,0,0,0,0], borderColor: '#f97316', tension: 0.4, fill: true, backgroundColor: 'rgba(249, 115, 22, 0.05)'
-                    }]
-                },
-                options: {
-                    maintainAspectRatio: false,
-                    scales: { y: { display: false }, x: { grid: { display: false } } },
-                    plugins: { legend: { display: false } }
-                }
+                data: { labels: ['H-6','H-5','H-4','H-3','H-2','H-1','Today'], datasets: [{ label: 'Cashflow', data: [0,0,0,0,0,0,0], borderColor: '#f97316', tension: 0.4, fill: true, backgroundColor: 'rgba(249, 115, 22, 0.05)' }] },
+                options: { maintainAspectRatio: false, scales: { y: { display: false } }, plugins: { legend: { display: false } } }
+            });
+
+            charts.habits = new Chart(ctxHab, {
+                type: 'bar',
+                data: { labels: ['H-6','H-5','H-4','H-3','H-2','H-1','Today'], datasets: [{ label: 'Consistency %', data: [0,0,0,0,0,0,0], backgroundColor: '#22c55e', borderRadius: 10 }] },
+                options: { maintainAspectRatio: false, scales: { y: { beginAtZero: true, max: 100 } }, plugins: { legend: { display: false } } }
+            });
+
+            charts.assets = new Chart(ctxAst, {
+                type: 'doughnut',
+                data: { labels: [], datasets: [{ data: [], backgroundColor: ['#f97316', '#ec4899', '#22c55e', '#3b82f6', '#8b5cf6'], borderWidth: 0 }] },
+                options: { maintainAspectRatio: false, plugins: { legend: { position: 'bottom', labels: { boxWidth: 12, usePointStyle: true, font: { family: 'Montserrat', weight: 600 } } } } }
             });
             updateCharts();
         }
 
         function updateCharts() {
-            if(!mainFinanceChartInstance) return;
+            if(!charts.finance || !charts.habits || !charts.assets) return;
             const now = new Date();
-            const dailyData = [0,0,0,0,0,0,0];
+            const finD = [0,0,0,0,0,0,0], habD = [0,0,0,0,0,0,0];
+            
             db.transactions.forEach(t => {
                 const diff = Math.floor((now - new Date(t.date)) / (86400000));
-                if(t.type === 'expense' && diff >= 0 && diff < 7) dailyData[6 - diff] += t.amt;
+                if(t.type === 'expense' && diff >= 0 && diff < 7) finD[6 - diff] += t.amt;
             });
-            mainFinanceChartInstance.data.datasets[0].data = dailyData;
-            mainFinanceChartInstance.update();
+
+            for(let i=0; i<7; i++) {
+                const d = new Date(); d.setDate(d.getDate() - (6-i));
+                const ds = d.toISOString().split('T')[0];
+                let count = 0;
+                db.habits.forEach(h => { if(db.habitEntries[`${h.id}_${ds}`]?.completed) count++; });
+                habD[i] = db.habits.length > 0 ? Math.round((count / db.habits.length) * 100) : 0;
+            }
+
+            // Asset Cost Map
+            const assetMap = {};
+            db.assets.forEach(a => { assetMap[a.asset] = (assetMap[a.asset] || 0) + a.cost; });
+            
+            charts.finance.data.datasets[0].data = finD; charts.finance.update();
+            charts.habits.data.datasets[0].data = habD; charts.habits.update();
+            charts.assets.data.labels = Object.keys(assetMap);
+            charts.assets.data.datasets[0].data = Object.values(assetMap);
+            charts.assets.update();
         }
 
         window.onload = init;
