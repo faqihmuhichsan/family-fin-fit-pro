@@ -35,13 +35,8 @@
             --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        /* --- Global Reset & Base Typography --- */
-        * { 
-            margin: 0; 
-            padding: 0; 
-            box-sizing: border-box; 
-            -webkit-tap-highlight-color: transparent; 
-        }
+        /* Global Reset */
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
         
         body { 
             font-family: 'Montserrat', sans-serif; 
@@ -54,7 +49,7 @@
 
         h1, h2, h3, h4, .nav-link, .btn, .form-label, th { font-family: 'Poppins', sans-serif; }
         
-        /* Dashboard Branding Font */
+        /* Dashboard Hero Branding Font */
         .special-name { 
             font-family: 'Righteous', cursive; 
             color: var(--primary); 
@@ -68,63 +63,26 @@
         }
 
         /* ==========================================================================
-           2. SIDEBAR NAVIGATION SYSTEM
+           2. SIDEBAR NAVIGATION SYSTEM (DESKTOP)
            ========================================================================== */
         aside {
-            width: var(--sidebar-width); 
-            background: var(--bg-card); 
-            border-right: 1px solid #fee2e2;
-            padding: 2.5rem 1.8rem; 
-            display: flex; 
-            flex-direction: column; 
-            position: fixed; 
-            height: 100vh; 
-            z-index: 1000;
-            transition: var(--transition);
+            width: var(--sidebar-width); background: var(--bg-card); border-right: 1px solid #fee2e2;
+            padding: 2.5rem 1.8rem; display: flex; flex-direction: column; position: fixed; height: 100vh; z-index: 1000;
         }
 
         .logo { 
-            display: flex; 
-            align-items: center; 
-            gap: 15px; 
-            margin-bottom: 3.5rem; 
-            color: var(--primary); 
-            font-weight: 900; 
-            font-size: 1.4rem; 
-            text-transform: uppercase; 
-            letter-spacing: 1px;
+            display: flex; align-items: center; gap: 15px; margin-bottom: 3.5rem; 
+            color: var(--primary); font-weight: 900; font-size: 1.4rem; 
+            text-transform: uppercase; letter-spacing: 1px;
         }
+        .site-logo { width: 45px; height: 45px; object-fit: contain; border-radius: 12px; box-shadow: 0 8px 20px rgba(0,0,0,0.1); border: 2px solid white; }
         
-        .site-logo { 
-            width: 45px; 
-            height: 45px; 
-            object-fit: contain; 
-            border-radius: 12px; 
-            box-shadow: 0 8px 20px rgba(249, 115, 22, 0.2); 
-            border: 2px solid #fff;
-        }
-        
-        .nav-menu { list-style: none; display: flex; flex-direction: column; gap: 12px; }
-        
+        .nav-menu { list-style: none; display: flex; flex-direction: column; gap: 10px; }
         .nav-link {
-            text-decoration: none; 
-            color: var(--text-muted); 
-            padding: 18px 24px; 
-            border-radius: 22px;
-            display: flex; 
-            align-items: center; 
-            gap: 15px; 
-            font-weight: 700; 
-            transition: var(--transition); 
-            cursor: pointer;
+            text-decoration: none; color: var(--text-muted); padding: 18px 24px; border-radius: 22px;
+            display: flex; align-items: center; gap: 15px; font-weight: 700; transition: var(--transition); cursor: pointer;
         }
-        
-        .nav-link:hover { 
-            background: #fff1f2; 
-            color: var(--secondary); 
-            transform: translateX(10px); 
-        }
-        
+        .nav-link:hover { background: #fff1f2; color: var(--secondary); transform: translateX(10px); }
         .nav-link.active { 
             background: linear-gradient(135deg, var(--primary), var(--secondary)); 
             color: white; 
@@ -134,15 +92,9 @@
         .bottom-nav { display: none; }
 
         /* ==========================================================================
-           3. MAIN LAYOUT & SCROLL AREA
+           3. MAIN LAYOUT & GRID COMPONENTS
            ========================================================================== */
-        main { 
-            flex: 1; 
-            margin-left: var(--sidebar-width); 
-            padding: 3rem 4.5rem; 
-            min-height: 100vh; 
-            transition: 0.3s; 
-        }
+        main { flex: 1; margin-left: var(--sidebar-width); padding: 3rem 4.5rem; min-height: 100vh; transition: 0.3s; }
         
         section { display: none; animation: slideInUp 0.7s cubic-bezier(0.23, 1, 0.32, 1); }
         section.active { display: block; }
@@ -152,143 +104,57 @@
             to { opacity: 1; transform: translateY(0) scale(1); } 
         }
 
-        .header-flex { 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            margin-bottom: 3.5rem; 
-            flex-wrap: wrap; 
-            gap: 1.5rem; 
-        }
+        .header-flex { display: flex; justify-content: space-between; align-items: center; margin-bottom: 3.5rem; flex-wrap: wrap; gap: 1.5rem; }
 
-        /* --- Stats Card Components --- */
-        .stats-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
-            gap: 1.8rem; 
-            margin-bottom: 3.5rem; 
-        }
-        
+        /* Stats Component */
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.8rem; margin-bottom: 3rem; }
         .stat-card { 
-            background: white; 
-            padding: 2.2rem; 
-            border-radius: var(--radius-lg); 
-            box-shadow: var(--shadow); 
-            border: 1px solid #fff1f2; 
-            transition: 0.4s; 
-            position: relative; 
-            overflow: hidden; 
+            background: white; padding: 2.2rem; border-radius: var(--radius-lg); 
+            box-shadow: var(--shadow); border: 1px solid #fff1f2; transition: 0.4s; 
+            position: relative; overflow: hidden; 
         }
-        
         .stat-card:hover { transform: translateY(-12px); box-shadow: 0 20px 50px rgba(249, 115, 22, 0.15); }
-        .stat-card::before { 
-            content: ''; 
-            position: absolute; 
-            top: 0; 
-            left: 0; 
-            width: 6px; 
-            height: 100%; 
-            background: linear-gradient(to bottom, var(--primary), var(--secondary)); 
-            opacity: 0.7; 
-        }
-        
-        .stat-card h3 { 
-            font-size: 0.8rem; 
-            color: var(--text-muted); 
-            text-transform: uppercase; 
-            margin-bottom: 12px; 
-            font-weight: 800; 
-            letter-spacing: 1.2px; 
-        }
-        
-        .stat-card .value { 
-            font-size: 1.9rem; 
-            font-weight: 900; 
-            color: var(--text-main); 
-            letter-spacing: -0.5px; 
-        }
+        .stat-card::before { content: ''; position: absolute; top: 0; left: 0; width: 6px; height: 100%; background: linear-gradient(to bottom, var(--primary), var(--secondary)); opacity: 0.7; }
+        .stat-card h3 { font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; margin-bottom: 12px; font-weight: 800; letter-spacing: 1.2px; }
+        .stat-card .value { font-size: 1.9rem; font-weight: 900; color: var(--text-main); letter-spacing: -0.5px; }
 
-        /* --- Birthday Alert --- */
+        /* Birthday Celebration Banner */
         #bday-banner { 
-            display: none; 
-            background: linear-gradient(135deg, #fdf2f8, #fbcfe8); 
-            border: 3.5px dashed var(--secondary); 
-            padding: 2.5rem; 
-            border-radius: var(--radius-lg); 
-            margin-bottom: 3.5rem; 
-            align-items: center; 
-            gap: 25px; 
+            display: none; background: linear-gradient(135deg, #fdf2f8, #fbcfe8); border: 3.5px dashed var(--secondary); 
+            padding: 2.5rem; border-radius: var(--radius-lg); margin-bottom: 3.5rem; align-items: center; gap: 25px; 
             animation: bounceIn 2s infinite; 
         }
         @keyframes bounceIn { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
 
         /* ==========================================================================
-           4. SOVEREIGN FORM & MODERN INPUTS
+           4. FORM COMPONENTS & MODERN SELECTS
            ========================================================================== */
-        .card { 
-            background: white; 
-            padding: 3rem; 
-            border-radius: var(--radius-lg); 
-            box-shadow: var(--shadow); 
-            margin-bottom: 2rem; 
-            border: 1px solid #fff1f2; 
-        }
-        
+        .card { background: white; padding: 3rem; border-radius: var(--radius-lg); box-shadow: var(--shadow); margin-bottom: 2rem; border: 1px solid #fff1f2; }
         .form-group { margin-bottom: 2.2rem; position: relative; }
-        
-        .form-label { 
-            display: block; 
-            margin-bottom: 12px; 
-            font-weight: 800; 
-            font-size: 0.85rem; 
-            color: var(--text-muted); 
-            text-transform: uppercase; 
-            letter-spacing: 0.5px; 
-        }
+        .form-label { display: block; margin-bottom: 12px; font-weight: 800; font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; }
         
         .modern-input { 
-            width: 100%; 
-            padding: 20px 26px; 
-            background: #f8fafc; 
-            border: 2.5px solid #f1f5f9; 
-            border-radius: 22px; 
-            font-family: 'Montserrat', sans-serif; 
-            font-size: 1rem; 
-            font-weight: 700; 
-            outline: none; 
-            transition: 0.3s;
+            width: 100%; padding: 20px 26px; background: #f8fafc; border: 2.5px solid #f1f5f9; border-radius: 22px; 
+            font-family: 'Montserrat', sans-serif; font-size: 1rem; font-weight: 700; outline: none; transition: 0.3s;
             color: var(--text-main);
         }
-        
-        .modern-input:focus { 
-            border-color: var(--primary); 
-            background: white; 
-            box-shadow: 0 0 0 6px rgba(249, 115, 22, 0.1); 
-        }
+        .modern-input:focus { border-color: var(--primary); background: white; box-shadow: 0 0 0 6px rgba(249, 115, 22, 0.1); }
 
-        /* Modern Date UI Wrapper */
+        /* Modern Custom Date UI */
         .date-input-wrapper { position: relative; width: 100%; }
-        .date-input-wrapper i { 
-            position: absolute; 
-            right: 24px; 
-            top: 50%; 
-            transform: translateY(-50%); 
-            color: var(--secondary); 
-            font-size: 1.3rem; 
-            pointer-events: none; 
-            z-index: 5; 
-        }
-        
+        .date-input-wrapper i { position: absolute; right: 24px; top: 50%; transform: translateY(-50%); color: var(--secondary); font-size: 1.3rem; pointer-events: none; z-index: 5; }
+        .modern-date-input { position: relative; cursor: pointer; }
         .modern-date-input::-webkit-calendar-picker-indicator { 
             opacity: 0; width: 100%; height: 100%; position: absolute; top: 0; left: 0; cursor: pointer; z-index: 10;
         }
 
-        /* Smart Select UI Engine */
+        /* Smart Select Engine UI */
         .custom-select { position: relative; width: 100%; z-index: 100; }
         .select-trigger { 
             padding: 18px 24px; background: #f8fafc; border: 2.5px solid #f1f5f9; border-radius: 22px; 
             display: flex; justify-content: space-between; align-items: center; font-weight: 800; transition: 0.3s; cursor: pointer;
         }
+        .select-trigger:hover { border-color: var(--primary); background: white; }
         .select-options { 
             position: absolute; top: 110%; left: 0; width: 100%; background: white; border-radius: 22px; 
             box-shadow: 0 20px 60px rgba(0,0,0,0.15); display: none; overflow: hidden; border: 1px solid #f1f5f9; z-index: 500;
@@ -299,7 +165,7 @@
         .select-option:hover { background: #fff1f2; color: var(--secondary); }
 
         /* ==========================================================================
-           5. HABIT MASTER & LOGIC VISUALS
+           5. HABIT MASTER & TRIPLE ANALYTICS VISUALS
            ========================================================================== */
         .folder-container { background: #fff1f2; padding: 2.5rem; border-radius: var(--radius-lg); margin-bottom: 2.5rem; border: 2px solid #fce7f3; }
         .folder-title { font-weight: 900; color: var(--secondary); font-size: 1.3rem; text-transform: uppercase; letter-spacing: 1px; }
@@ -320,6 +186,7 @@
            ========================================================================== */
         .btn { padding: 16px 32px; border-radius: 22px; border: none; font-weight: 800; cursor: pointer; transition: 0.3s; display: inline-flex; align-items: center; gap: 12px; font-size: 0.95rem; }
         .btn:hover { transform: translateY(-4px); opacity: 0.95; }
+        
         .btn-primary { background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; box-shadow: 0 10px 30px rgba(249, 115, 22, 0.3); }
         .btn-success { background: var(--accent); color: white; box-shadow: 0 10px 25px rgba(34, 197, 94, 0.2); }
         .btn-danger { background: #fff1f0; color: var(--danger); }
@@ -346,22 +213,30 @@
         .toast.show { transform: translateX(0); }
 
         /* ==========================================================================
-           8. MOBILE ADAPTATION (5-TAB MASTERY)
+           8. MOBILE NAVIGATION (FIXED: 6-TAB SYSTEM)
            ========================================================================== */
         @media (max-width: 1024px) {
             aside { display: none; }
-            main { margin-left: 0; padding: 2.5rem 1.2rem 15rem 1.2rem; }
+            main { margin-left: 0; padding: 2rem 1rem 15rem 1rem; }
+            
+            /* Bottom Nav RESTORED & OPTIMIZED for 6 Icons */
             .bottom-nav {
                 display: flex; position: fixed; bottom: 0; left: 0; width: 100%; background: white;
-                padding: 24px 10px; box-shadow: 0 -20px 50px rgba(0,0,0,0.12); justify-content: space-around;
+                padding: 18px 5px; box-shadow: 0 -20px 50px rgba(0,0,0,0.12); justify-content: space-around;
                 z-index: 2000; border-radius: 45px 45px 0 0; border-top: 2.5px solid #fff1f2;
             }
-            .bottom-nav a { text-decoration: none; color: var(--text-muted); display: flex; flex-direction: column; align-items: center; font-size: 0.65rem; font-weight: 800; gap: 10px; flex: 1; }
-            .bottom-nav a.active { color: var(--secondary); transform: translateY(-12px); transition: 0.3s ease; }
-            .bottom-nav i { font-size: 1.6rem; }
+            .bottom-nav a { 
+                text-decoration: none; color: var(--text-muted); 
+                display: flex; flex-direction: column; align-items: center; 
+                font-size: 0.6rem; font-weight: 800; gap: 6px; flex: 1; 
+                transition: 0.3s ease;
+            }
+            .bottom-nav a.active { color: var(--secondary); transform: translateY(-8px); }
+            .bottom-nav i { font-size: 1.3rem; }
+            
             .grid-2 { grid-template-columns: 1fr; }
-            .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 1.2rem; }
-            .special-name { font-size: 2.1rem; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+            .special-name { font-size: 2rem; }
         }
     </style>
 </head>
@@ -387,8 +262,9 @@
     <div class="bottom-nav">
         <a class="active" onclick="switchTab('dashboard')"><i class="fas fa-home"></i> <span data-i18n="nav_dash">Home</span></a>
         <a onclick="switchTab('finance')"><i class="fas fa-wallet"></i> <span data-i18n="nav_fin">Fin</span></a>
-        <a onclick="switchTab('habits')"><i class="fas fa-check"></i> <span data-i18n="nav_hab">Habit</span></a>
+        <a onclick="switchTab('habits')"><i class="fas fa-check-double"></i> <span data-i18n="nav_hab">Habit</span></a>
         <a onclick="switchTab('roadmap')"><i class="fas fa-map-signs"></i> <span data-i18n="nav_road">Road</span></a>
+        <a onclick="switchTab('asset')"><i class="fas fa-wrench"></i> <span data-i18n="nav_asset">Asset</span></a>
         <a onclick="switchTab('settings')"><i class="fas fa-cog"></i> <span data-i18n="nav_set">Set</span></a>
     </div>
 
@@ -418,10 +294,10 @@
                 <div class="stat-card"><h3>Asset Logs</h3><div class="value" style="color:var(--primary)" id="dash-asset-count">0</div></div>
             </div>
             
-            <div class="grid-2" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
-                <div class="card"><h3 data-i18n="dash_cashflow" style="margin-bottom: 1.5rem;">Cashflow Analysis</h3><div style="height: 250px;"><canvas id="chartFinance"></canvas></div></div>
-                <div class="card"><h3 data-i18n="dash_habit" style="margin-bottom: 1.5rem;">Habit Consistency</h3><div style="height: 250px;"><canvas id="chartHabits"></canvas></div></div>
-                <div class="card"><h3 data-i18n="dash_asset_analytics" style="margin-bottom: 1.5rem;">Asset Cost Dist.</h3><div style="height: 250px;"><canvas id="chartAssets"></canvas></div></div>
+            <div class="grid-2" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));">
+                <div class="card"><h3 data-i18n="dash_cashflow" style="margin-bottom: 1.5rem;">Analisis Arus Kas</h3><div style="height: 250px;"><canvas id="chartFinance"></canvas></div></div>
+                <div class="card"><h3 data-i18n="dash_habit" style="margin-bottom: 1.5rem;">Konsistensi Habit</h3><div style="height: 250px;"><canvas id="chartHabits"></canvas></div></div>
+                <div class="card"><h3 data-i18n="dash_asset_analytics" style="margin-bottom: 1.5rem;">Distribusi Biaya Aset</h3><div style="height: 250px;"><canvas id="chartAssets"></canvas></div></div>
                 <div class="card"><h3 data-i18n="dash_roadmap" style="margin-bottom: 1.5rem;">Prioritas Roadmap</h3><div id="dash-goals-summary"></div></div>
             </div>
         </section>
@@ -429,7 +305,7 @@
         <section id="asset-section">
             <div class="header-flex">
                 <h2 data-i18n="nav_asset">Maintenance Aset</h2>
-                <button class="btn btn-primary" onclick="openModal('asset')"><i class="fas fa-wrench"></i> <span data-i18n="btn_log_fix">Log Fix</span></button>
+                <button class="btn btn-primary" onclick="openModal('asset')"><i class="fas fa-wrench"></i> <span data-i18n="btn_log_fix">Tambah Log Servis</span></button>
             </div>
             <div class="card">
                 <div class="table-container">
@@ -449,11 +325,44 @@
             </div>
         </section>
 
-        <section id="finance-section"><div class="card"><h3 data-i18n="fin_log">Log Keuangan</h3><div class="table-container"><table><thead><tr><th data-i18n="th_date">Tgl</th><th data-i18n="th_type">Tipe</th><th data-i18n="th_desc">Ket</th><th data-i18n="th_amt">Jumlah</th><th data-i18n="th_action">Aksi</th></tr></thead><tbody id="finance-body"></tbody></table></div></div></section>
+        <section id="finance-section">
+            <div class="card">
+                <h3 data-i18n="fin_log" style="margin-bottom: 2rem;">Riwayat Keuangan</h3>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th data-i18n="th_date">Tgl</th>
+                                <th data-i18n="th_type">Tipe</th>
+                                <th data-i18n="th_desc">Ket</th>
+                                <th data-i18n="th_amt">Jumlah</th>
+                                <th data-i18n="th_action">Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody id="finance-body"></tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
 
-        <section id="habits-section"><div class="header-flex"><h2 data-i18n="hab_master">Habit Master</h2><div style="display:flex;gap:15px"><button class="btn btn-outline" onclick="openModal('folder')"><i class="fas fa-folder-plus"></i></button><button class="btn btn-success" onclick="openModal('habit')"><i class="fas fa-plus"></i></button></div></div><div id="habits-folders-container"></div></section>
+        <section id="habits-section">
+            <div class="header-flex">
+                <h2 data-i18n="hab_master">Habit Master</h2>
+                <div style="display:flex;gap:15px">
+                    <button class="btn btn-outline" onclick="openModal('folder')"><i class="fas fa-folder-plus"></i></button>
+                    <button class="btn btn-success" onclick="openModal('habit')"><i class="fas fa-plus"></i></button>
+                </div>
+            </div>
+            <div id="habits-folders-container"></div>
+        </section>
 
-        <section id="roadmap-section"><div class="header-flex"><h2 data-i18n="road_title">Life Roadmap</h2><button class="btn btn-success" onclick="openModal('goal')"><i class="fas fa-plus"></i></button></div><div id="goals-full-list" class="grid-2" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));"></div></section>
+        <section id="roadmap-section">
+            <div class="header-flex">
+                <h2 data-i18n="road_title">Life Roadmap</h2>
+                <button class="btn btn-success" onclick="openModal('goal')"><i class="fas fa-plus"></i> Target</button>
+            </div>
+            <div id="goals-full-list" class="grid-2" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));"></div>
+        </section>
 
         <section id="settings-section">
             <div class="grid-2">
@@ -486,7 +395,7 @@
                             <i class="fas fa-icons"></i>
                         </div>
                     </div>
-                    <button class="btn btn-primary" style="width: 100%; margin-top: 10px; margin-bottom: 2rem;" onclick="saveAppStyle()" data-i18n="btn_save_brand">Simpan Visual</button>
+                    <button class="btn btn-primary" style="width: 100%; margin-top: 10px; margin-bottom: 2rem;" onclick="saveAppStyle()" data-i18n="btn_save_brand">Simpan Visual Website</button>
 
                     <div class="form-group">
                         <label class="form-label" data-i18n="lbl_lang">SISTEM BAHASA</label>
@@ -553,13 +462,13 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
         /**
-         * FAMILY FIN FIT PRO - DIAMOND SOVEREIGN ULTIMATE MASTERPIECE
-         * Version: 2.9.0 (Grand Final V22)
-         * Author: Gemini AI for Faqih Muhammad Ichsan
+         * FAMILY FIN FIT PRO - DIAMOND SOVEREIGN ULTIMATE
+         * Version: 2.9.0 (FMI Masterpiece V23)
+         * Author: Gemini AI for Faqih Muhammad Ichsan (Amikom)
          */
 
-        // --- 1. GLOBAL DATABASE SYSTEM ---
-        let db = JSON.parse(localStorage.getItem('fff_royal_v22_master')) || {
+        // --- 1. GLOBAL DATABASE ARCHITECTURE ---
+        let db = JSON.parse(localStorage.getItem('fff_royal_v23_master')) || {
             profile: { name: 'Faqih Muhammad Ichsan', bday: '' },
             app: { branding: 'FMI Sovereign', logo: 'fa-gem' },
             lang: 'id', 
@@ -569,8 +478,8 @@
         const i18n = {
             id: {
                 nav_dash: "Dashboard", nav_fin: "Keuangan", nav_hab: "Habits", nav_road: "Roadmap", nav_asset: "Maintenance", nav_set: "Pengaturan",
-                greet_small: "Halo, Selamat Datang!", btn_entry: "Entry Baru", dash_cashflow: "Analisis Arus Kas", dash_roadmap: "Prioritas Roadmap",
-                dash_habit: "Analisis Konsistensi", dash_asset_analytics: "Distribusi Biaya Aset", btn_log_fix: "Log Fix",
+                greet_small: "Halo, Selamat Datang!", btn_entry: "Entry Baru", dash_cashflow: "Arus Kas", dash_roadmap: "Prioritas Roadmap",
+                dash_habit: "Analisis Konsistensi", dash_asset_analytics: "Distribusi Biaya Aset", btn_log_fix: "Tambah Log Servis",
                 set_title: "Profil & Biodata", lbl_name: "NAMA LENGKAP", lbl_bday: "TANGGAL LAHIR",
                 lbl_bday_note: "Sistem cerdas akan mendeteksi hari spesial Anda untuk kejutan visual!", ph_name: "Nama Anda",
                 btn_save_prof: "Simpan Profil", lbl_lang: "Sistem Bahasa", fin_log: "Log Arus Kas", lbl_app_settings: "Konfigurasi Website",
@@ -584,7 +493,7 @@
             },
             en: {
                 nav_dash: "Dashboard", nav_fin: "Finance", nav_hab: "Habits", nav_road: "Roadmap", nav_asset: "Maintenance", nav_set: "Settings",
-                greet_small: "Hello, Welcome Back!", btn_entry: "New Entry", dash_cashflow: "Cashflow Analysis", dash_roadmap: "Priority Roadmap",
+                greet_small: "Hello, Welcome Back!", btn_entry: "New Entry", dash_cashflow: "Cashflow Trends", dash_roadmap: "Priority Roadmap",
                 dash_habit: "Habit Consistency", dash_asset_analytics: "Asset Cost Dist.", btn_log_fix: "Log Fix",
                 set_title: "Profile Data", lbl_name: "FULL NAME", lbl_bday: "BIRTH DATE",
                 lbl_bday_note: "System will detect your birthday and provide a visual surprise!", ph_name: "Your Name",
@@ -603,14 +512,14 @@
 
         // --- 2. ENGINE INITIALIZATION ---
         function init() {
-            // Load Dynamic Branding
+            // Branding Sync
             document.getElementById('branding-text').innerText = db.app.branding;
             document.getElementById('web-title').innerText = `${db.app.branding} | FamilyFinFit Pro`;
             document.getElementById('set-branding').value = db.app.branding;
             document.getElementById('app-logo-icon').className = `fas ${db.app.logo}`;
             document.getElementById('set-logo').value = db.app.logo;
             
-            // Sync Profile Data
+            // Profile Sync
             document.getElementById('set-name').value = db.profile.name;
             document.getElementById('set-bday').value = db.profile.bday;
             
@@ -621,7 +530,7 @@
             setInterval(updateTime, 1000);
             checkBirthday();
 
-            // SMART DROPDOWN AUTO-CLOSE
+            // DROPDOWN AUTO-CLOSE (SMART COMPONENTS)
             ['lang-dropdown', 'trans-type-dropdown'].forEach(id => {
                 const el = document.getElementById(id);
                 if (el) el.addEventListener('mouseleave', () => {
@@ -631,9 +540,9 @@
             });
         }
 
-        // --- 3. PERSISTENCE & LANGUAGE ENGINE ---
+        // --- 3. PERSISTENCE & i18n ---
         function save() {
-            localStorage.setItem('fff_royal_v22_master', JSON.stringify(db));
+            localStorage.setItem('fff_royal_v23_master', JSON.stringify(db));
             renderAll();
             updateCharts();
         }
@@ -660,24 +569,19 @@
 
         function applyLanguage() {
             const dict = i18n[db.lang];
-            
             document.querySelectorAll('[data-i18n]').forEach(el => {
                 const key = el.getAttribute('data-i18n');
                 if(dict[key]) el.innerText = dict[key];
             });
-            
             document.querySelectorAll('[data-placeholder-i18n]').forEach(el => {
                 const key = el.getAttribute('data-placeholder-i18n');
                 if(dict[key]) el.placeholder = dict[key];
             });
-            
             const langLabel = db.lang === 'id' ? '🇮🇩 Bahasa Indonesia' : '🇺🇸 English (US)';
             const ddHeader = document.getElementById('lang-selected');
             if(ddHeader) ddHeader.innerHTML = `<span><i class="fas fa-globe"></i> ${langLabel}</span> <i class="fas fa-chevron-down"></i>`;
-            
             document.getElementById('bday-title').innerText = dict.bday_t;
             document.getElementById('bday-text').innerText = dict.bday_m;
-            
             renderAll(); 
         }
 
@@ -685,7 +589,7 @@
         function saveAppStyle() {
             const newBrand = document.getElementById('set-branding').value.trim();
             const newLogo = document.getElementById('set-logo').value.trim();
-            if(!newBrand || !newLogo) return showToast('Error: Form visual website kosong!', 'error');
+            if(!newBrand || !newLogo) return showToast('Error: Form tidak boleh kosong!', 'error');
             db.app.branding = newBrand;
             db.app.logo = newLogo;
             document.getElementById('branding-text').innerText = newBrand;
@@ -713,40 +617,35 @@
             else document.getElementById('bday-banner').style.display = 'none';
         }
 
-        // --- 5. RENDER SYSTEM ENGINE (SAVING TARGET & ASSET FIXED) ---
+        // --- 5. RENDER SYSTEM ENGINE (SAVING TARGET RESTORED) ---
         function renderAll() {
             const incomeTotal = db.transactions.filter(t => t.type === 'income').reduce((s, x) => s + x.amt, 0);
             const expenseTotal = db.transactions.filter(t => t.type === 'expense').reduce((s, x) => s + x.amt, 0);
-            
-            // Synchronized Saving Target
-            const totalSavingsAcrossRoadmap = db.goals.reduce((sum, goal) => sum + goal.current, 0);
+            const totalSavedAcrossRoadmap = db.goals.reduce((sum, goal) => sum + goal.current, 0);
 
             document.getElementById('dash-balance').innerText = formatIDR(incomeTotal - expenseTotal);
-            document.getElementById('dash-saved').innerText = formatIDR(totalSavingsAcrossRoadmap);
+            document.getElementById('dash-saved').innerText = formatIDR(totalSavedAcrossRoadmap);
             document.getElementById('dash-asset-count').innerText = db.assets.length;
             document.getElementById('display-name').innerText = db.profile.name;
 
             const todayKey = new Date().toISOString().split('T')[0];
-            let doneCount = 0; db.habits.forEach(h => { if(db.habitEntries[`${h.id}_${todayKey}`]?.completed) doneCount++; });
-            document.getElementById('dash-habit-score').innerText = db.habits.length > 0 ? Math.round((doneCount / db.habits.length)*100) + '%' : '0%';
+            let done = 0; db.habits.forEach(h => { if(db.habitEntries[`${h.id}_${todayKey}`]?.completed) done++; });
+            document.getElementById('dash-habit-score').innerText = db.habits.length > 0 ? Math.round((done / db.habits.length)*100) + '%' : '0%';
 
-            const d = i18n[db.lang];
+            const dict = i18n[db.lang];
             
-            // Finance Table
+            // Tables
             document.getElementById('finance-body').innerHTML = db.transactions.map(t => `
-                <tr><td>${new Date(t.date).toLocaleDateString()}</td><td><span class="badge ${t.type==='income'?'badge-income':'badge-expense'}">${t.type==='income'?d.inc:d.exp}</span></td><td>${t.desc}</td><td><strong>${formatIDR(t.amt)}</strong></td><td><button class="btn btn-danger btn-sm" onclick="openConfirmModal('transactions', ${t.id})"><i class="fas fa-trash"></i></button></td></tr>
+                <tr><td>${new Date(t.date).toLocaleDateString()}</td><td><span class="badge ${t.type==='income'?'badge-income':'badge-expense'}">${t.type==='income'?dict.inc:dict.exp}</span></td><td>${t.desc}</td><td><strong>${formatIDR(t.amt)}</strong></td><td><button class="btn btn-danger btn-sm" onclick="openConfirmModal('transactions', ${t.id})"><i class="fas fa-trash"></i></button></td></tr>
             `).join('') || `<tr><td colspan="5" style="text-align:center;padding:3rem;opacity:0.3">...</td></tr>`;
 
-            // Habit Folders
+            document.getElementById('asset-body').innerHTML = db.assets.map(a => `<tr><td>${new Date(a.date).toLocaleDateString()}</td><td>${a.asset}</td><td>${a.act}</td><td>${formatIDR(a.cost)}</td><td><button class="btn btn-danger btn-sm" onclick="openConfirmModal('assets', ${a.id})"><i class="fas fa-trash"></i></button></td></tr>`).join('') || `<tr><td colspan="5" style="text-align:center;padding:3rem;opacity:0.4">No maintenance logs found</td></tr>`;
+
             document.getElementById('habits-folders-container').innerHTML = db.folders.map(f => {
                 const hbts = db.habits.filter(h => h.folderId === f.id).map(h => `<div class="habit-item" onclick="openHabitCalendar(${h.id})"><span style="font-weight:800">${h.name}</span><button class="btn btn-danger btn-sm" style="padding:6px 10px" onclick="event.stopPropagation(); openConfirmModal('habits', ${h.id})"><i class="fas fa-trash"></i></button></div>`).join('');
                 return `<div class="folder-container"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:2rem"><span class="folder-title">${f.name}</span> <button class="btn btn-danger btn-sm" onclick="openConfirmModal('folders', ${f.id})"><i class="fas fa-times"></i></button></div>${hbts || '<p style="opacity:0.5;font-size:0.9rem">Folder Kosong</p>'}</div>`;
             }).join('') || '<div style="text-align:center;opacity:0.2;padding:4rem;"><i class="fas fa-folder-open fa-4x"></i></div>';
 
-            // Maintenance Table
-            document.getElementById('asset-body').innerHTML = db.assets.map(a => `<tr><td>${new Date(a.date).toLocaleDateString()}</td><td>${a.asset}</td><td>${a.act}</td><td>${formatIDR(a.cost)}</td><td><button class="btn btn-danger btn-sm" onclick="openConfirmModal('assets', ${a.id})"><i class="fas fa-trash"></i></button></td></tr>`).join('') || `<tr><td colspan="5" style="text-align:center;padding:3rem;opacity:0.4">${db.lang === 'id' ? 'Belum ada log perawatan' : 'No asset maintenance logs'}</td></tr>`;
-
-            // Roadmap Goals
             document.getElementById('goals-full-list').innerHTML = db.goals.map(g => {
                 const p = Math.min(Math.round((g.current/g.target)*100), 100);
                 return `<div class="card"><div style="display:flex;justify-content:space-between"><strong>${g.name}</strong><small style="font-weight:800">${new Date(g.date).getFullYear()}</small></div><div style="margin:12px 0;font-size:1.3rem;font-weight:900">${formatIDR(g.current)} / ${formatIDR(g.target)}</div><div class="goal-progress-bg" style="height:10px; background:#f1f5f9; border-radius:20px; margin:15px 0; overflow:hidden;"><div style="height:100%; background:linear-gradient(90deg, var(--primary), var(--secondary)); width:${p}%"></div></div><div style="display:flex;justify-content:space-between;align-items:center"><span>${p}%</span><button class="btn btn-primary btn-sm" onclick="openModal('allocation', ${g.id})">+ Save</button></div></div>`;
@@ -784,11 +683,11 @@
             db.transactions.forEach(t => csv += `${t.date},${t.type},${t.desc},${t.amt}\n`);
             const b = new Blob([csv], { type: 'text/csv' });
             const u = URL.createObjectURL(b); const a = document.createElement('a'); a.href = u;
-            a.download = `Sovereign_Master_Report.csv`;
-            a.click(); showToast('CSV Backup Exported! 💾');
+            a.download = `Sovereign_Master_Report_${new Date().getFullYear()}.csv`;
+            a.click(); showToast('Backup Data Exported! 💾');
         }
 
-        // --- 7. HABIT Master Calendar Core Logic ---
+        // --- 7. HABIT MASTER CALENDAR CORE LOGIC ---
         function openHabitCalendar(id) {
             const h = db.habits.find(x => x.id === id);
             document.getElementById('habit-detail-title').innerText = h.name;
@@ -821,6 +720,7 @@
                 el.classList.remove('active');
                 if(el.getAttribute('onclick')?.includes(id)) el.classList.add('active');
             });
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
         function closeModal() { document.getElementById('modal').style.display = 'none'; }
@@ -831,7 +731,7 @@
             document.getElementById('confirm-modal').style.display = 'flex';
             document.getElementById('confirm-proceed-btn').onclick = () => {
                 if(type==='reset') { localStorage.clear(); location.reload(); }
-                else { db[type] = db[type].filter(i=>i.id!==id); save(); closeConfirmModal(); showToast('Removed Successfully'); }
+                else { db[type] = db[type].filter(i=>i.id!==id); save(); closeConfirmModal(); showToast('Data Successfully Removed'); }
             };
         }
 
@@ -850,26 +750,26 @@
             } else if(type === 'habit') {
                 const options = db.folders.map(f => `<option value="${f.id}">${f.name}</option>`).join('');
                 document.getElementById('modal-title').innerText = 'New Habit';
-                fields.innerHTML = `<div class="form-group"><label class="form-label">Category</label><select id="h_folder" class="modern-input" style="padding-left:20px">${options}</select></div><div class="form-group"><label class="form-label">Name</label><input id="h_name" class="modern-input" required></div>`;
-                document.getElementById('data-form').onsubmit = (e) => { e.preventDefault(); db.habits.push({ id: Date.now(), folderId: parseInt(document.getElementById('h_folder').value), name: document.getElementById('h_name').value }); closeModal(); save(); };
+                fields.innerHTML = `<div class="form-group"><label class="form-label">Target Category</label><select id="h_folder" class="modern-input" style="padding-left:20px">${options}</select></div><div class="form-group"><label class="form-label">Task Name</label><input id="h_name" class="modern-input" required></div>`;
+                document.getElementById('data-form').onsubmit = (e) => { e.preventDefault(); db.habits.push({ id: Date.now(), folderId: parseInt(document.getElementById('h_folder').value), name: document.getElementById('h_name').value }); closeModal(); save(); showToast('Master Habit Ready'); };
             } else if(type === 'asset') {
                 document.getElementById('modal-title').innerText = d.nav_asset;
                 fields.innerHTML = `<div class="form-group"><label class="form-label">${d.th_asset}</label><input id="m_asset" class="modern-input" data-placeholder-i18n="ph_asset" required></div><div class="form-group"><label class="form-label">${d.th_act}</label><input id="m_act" class="modern-input" required></div><div class="form-group"><label class="form-label">${d.th_cost}</label><input type="number" id="m_cost" class="modern-input" required></div>`;
                 applyLanguage();
-                document.getElementById('data-form').onsubmit = (e) => { e.preventDefault(); const a = parseInt(document.getElementById('m_cost').value); const l = `Fix [${document.getElementById('m_asset').value}]: ${document.getElementById('m_act').value}`; db.assets.unshift({ id: Date.now(), asset: document.getElementById('m_asset').value, act: document.getElementById('m_act').value, cost: a, date: new Date().toISOString() }); db.transactions.unshift({ id: Date.now(), type: 'expense', desc: l, amt: a, date: new Date().toISOString() }); closeModal(); save(); };
+                document.getElementById('data-form').onsubmit = (e) => { e.preventDefault(); const c = parseInt(document.getElementById('m_cost').value); const label = `Fix [${document.getElementById('m_asset').value}]: ${document.getElementById('m_act').value}`; db.assets.unshift({ id: Date.now(), asset: document.getElementById('m_asset').value, act: document.getElementById('m_act').value, cost: c, date: new Date().toISOString() }); db.transactions.unshift({ id: Date.now(), type: 'expense', desc: label, amt: c, date: new Date().toISOString() }); closeModal(); save(); showToast('Asset Maintenance Logged'); };
             } else if(type === 'goal') {
                 document.getElementById('modal-title').innerText = d.road_title;
                 fields.innerHTML = `<div class="form-group"><label class="form-label">${d.lbl_target}</label><input id="g_name" class="modern-input" required></div><div class="form-group"><label class="form-label">${d.th_amt}</label><input type="number" id="g_target" class="modern-input" required></div><div class="form-group"><label class="form-label">${d.lbl_dl}</label><div class="date-input-wrapper"><input type="date" id="g_date" class="modern-input modern-date-input" required><i class="fas fa-calendar-day"></i></div></div>`;
-                document.getElementById('data-form').onsubmit = (e) => { e.preventDefault(); db.goals.push({ id: Date.now(), name: document.getElementById('g_name').value, target: parseInt(document.getElementById('g_target').value), current: 0, date: document.getElementById('g_date').value }); closeModal(); save(); };
+                document.getElementById('data-form').onsubmit = (e) => { e.preventDefault(); db.goals.push({ id: Date.now(), name: document.getElementById('g_name').value, target: parseInt(document.getElementById('g_target').value), current: 0, date: document.getElementById('g_date').value }); closeModal(); save(); showToast('Goal Set'); };
             } else if(type === 'allocation') {
-                const goal = db.goals.find(x => x.id === extraId);
+                const target = db.goals.find(x => x.id === extraId);
                 document.getElementById('modal-title').innerText = d.nav_road;
-                fields.innerHTML = `<p style="margin-bottom:1rem;font-weight:700;color:var(--secondary)">Targeting: ${goal.name}</p><div class="form-group"><label class="form-label">${d.th_amt}</label><input type="number" id="a_amt" class="modern-input" required></div>`;
-                document.getElementById('data-form').onsubmit = (e) => { e.preventDefault(); const a = parseInt(document.getElementById('a_amt').value); goal.current += a; db.transactions.unshift({ id: Date.now(), type: 'expense', desc: `Saving: ${goal.name}`, amt: a, date: new Date().toISOString() }); closeModal(); save(); showToast('Saved! ✨'); };
+                fields.innerHTML = `<p style="margin-bottom:1rem;font-weight:700;color:var(--secondary)">Targeting: ${target.name}</p><div class="form-group"><label class="form-label">${d.th_amt}</label><input type="number" id="a_amt" class="modern-input" required></div>`;
+                document.getElementById('data-form').onsubmit = (e) => { e.preventDefault(); const a = parseInt(document.getElementById('a_amt').value); target.current += a; db.transactions.unshift({ id: Date.now(), type: 'expense', desc: `Saving: ${target.name}`, amt: a, date: new Date().toISOString() }); closeModal(); save(); showToast('Master Saving Recorded! ✨'); };
             }
         }
 
-        // --- 9. TRIPLE ANALYTICS ENGINE (V21 RESTORED) ---
+        // --- 9. TRIPLE ANALYTICS ENGINE ---
         function initCharts() {
             const ctxFin = document.getElementById('chartFinance').getContext('2d');
             const ctxHab = document.getElementById('chartHabits').getContext('2d');
@@ -877,7 +777,7 @@
             
             charts.finance = new Chart(ctxFin, {
                 type: 'line',
-                data: { labels: ['H-6','H-5','H-4','H-3','H-2','H-1','Today'], datasets: [{ label: 'Cashflow', data: [0,0,0,0,0,0,0], borderColor: '#f97316', tension: 0.4, fill: true, backgroundColor: 'rgba(249, 115, 22, 0.05)' }] },
+                data: { labels: ['H-6','H-5','H-4','H-3','H-2','H-1','Today'], datasets: [{ label: 'Arus Kas', data: [0,0,0,0,0,0,0], borderColor: '#f97316', tension: 0.4, fill: true, backgroundColor: 'rgba(249, 115, 22, 0.05)' }] },
                 options: { maintainAspectRatio: false, scales: { y: { display: false } }, plugins: { legend: { display: false } } }
             });
 
@@ -913,7 +813,7 @@
                 habD[i] = db.habits.length > 0 ? Math.round((count / db.habits.length) * 100) : 0;
             }
 
-            // Asset Cost Distribution Logic
+            // Asset Cost Map
             const assetMap = {};
             db.assets.forEach(a => { assetMap[a.asset] = (assetMap[a.asset] || 0) + a.cost; });
             
